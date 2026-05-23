@@ -1,0 +1,28 @@
+# Static assets - let them pass through
+/_assets/*  /_assets/:splat  200
+/*.css      /:splat.css      200
+/*.js       /:splat.js       200
+/images/*   /images/:splat    200
+/*.woff     /:splat.woff     200
+/*.woff2    /:splat.woff2    200
+
+# Old URL redirects
+/old-services  /services  301
+/old-contact   /contact   301
+/old-quote     /quote     301
+/old-about     /about     301
+/old-fleet     /fleet     301
+
+# Remove trailing slashes
+/services/  /services  301
+/about/     /about     301
+/contact/   /contact   301
+/quote/     /quote     301
+/fleet/     /fleet     301
+/thank-you/ /thank-you 301
+
+# Form success redirect
+/form-success  /thank-you  302
+
+# 404 - Must be last
+/*  /404.html  404
