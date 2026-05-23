@@ -54,10 +54,65 @@
     NODE_ENV = "preview"
 
 # ============================================================
-# REDIRECTS
+# REDIRECTS - ORDER MATTERS!
 # ============================================================
 
-# 1. Specific old URL redirects (301 permanent)
+# Allow CSS files to be served normally
+[[redirects]]
+  from = "/*.css"
+  to = ":splat.css"
+  status = 200
+  force = false
+
+# Allow JS files to be served normally
+[[redirects]]
+  from = "/*.js"
+  to = ":splat.js"
+  status = 200
+  force = false
+
+# Allow assets folder files to be served normally
+[[redirects]]
+  from = "/_assets/*"
+  to = "/_assets/:splat"
+  status = 200
+  force = false
+
+# Allow images to be served normally
+[[redirects]]
+  from = "/images/*"
+  to = "/images/:splat"
+  status = 200
+  force = false
+
+# Allow font files to be served normally
+[[redirects]]
+  from = "/*.woff"
+  to = ":splat.woff"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/*.woff2"
+  to = ":splat.woff2"
+  status = 200
+  force = false
+
+# Allow XML files (sitemap)
+[[redirects]]
+  from = "/*.xml"
+  to = ":splat.xml"
+  status = 200
+  force = false
+
+# Allow robots.txt
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+  force = false
+
+# 2. Specific old URL redirects (301 permanent)
 [[redirects]]
   from = "/old-services"
   to = "/services"
@@ -83,7 +138,7 @@
   to = "/fleet"
   status = 301
 
-# 2. Remove trailing slashes (SEO friendly)
+# 3. Remove trailing slashes (SEO friendly)
 [[redirects]]
   from = "/services/"
   to = "/services"
@@ -114,34 +169,35 @@
   to = "/thank-you"
   status = 301
 
-# 3. Form success redirect
+# 4. Form success redirect
 [[redirects]]
   from = "/form-success"
   to = "/thank-you"
   status = 302
 
-# 4. Force HTTPS
+# 5. Force HTTPS
 [[redirects]]
   from = "http://*"
   to = "https://:splat"
   status = 301
   force = true
 
-# 5. WWW to non-WWW redirect (for your custom domain)
+# 6. WWW to non-WWW redirect (for your custom domain)
 [[redirects]]
   from = "https://www.namematransporters.co.ke/*"
   to = "https://namematransporters.co.ke/:splat"
   status = 301
   force = true
 
-# 6. Handle root path - serve index.html
+# 7. SPA FALLBACK - Only for HTML routes (NOT for static assets)
+# This should come AFTER all static asset rules
 [[redirects]]
-  from = "/"
+  from = "/*"
   to = "/index.html"
   status = 200
   force = false
 
-# 7. 404 ERROR HANDLING - MUST BE LAST
+# 8. 404 ERROR HANDLING - MUST BE LAST
 [[redirects]]
   from = "/*"
   to = "/404.html"
@@ -163,8 +219,22 @@
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     Cache-Control = "public, max-age=0, must-revalidate"
 
+# Ensure CSS files have correct MIME type
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Content-Type = "text/css"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Ensure JS files have correct MIME type
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+    Cache-Control = "public, max-age=31536000, immutable"
+
 # ============================================================
-# STATIC ASSET CACHING (Long-term cache for hashed files)
+# STATIC ASSET CACHING
 # ============================================================
 
 # Images
@@ -175,19 +245,7 @@
 
 # Assets (bundled files from Astro build)
 [[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# CSS files
-[[headers]]
-  for = "/*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# JavaScript files
-[[headers]]
-  for = "/*.js"
+  for = "/_assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
@@ -234,7 +292,7 @@
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
 
-# Thank you page - no cache (form submission result)
+# Thank you page - no cache
 [[headers]]
   for = "/thank-you"
   [headers.values]
