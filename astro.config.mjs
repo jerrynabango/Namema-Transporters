@@ -40,11 +40,13 @@ export default defineConfig({
       "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
       "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
       "Cache-Control": "public, max-age=0, must-revalidate",
+      
+      // CSP
       "Content-Security-Policy": `
         default-src 'self';
-        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://use.fontawesome.com https://www.google.com;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://use.fontawesome.com https://www.google.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://use.fontawesome.com;
-        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://use.fontawesome.com;
+        font-src 'self' 'unsafe-inline' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://use.fontawesome.com data:;
         img-src 'self' data: https: blob:;
         connect-src 'self';
         frame-src https://www.google.com;
