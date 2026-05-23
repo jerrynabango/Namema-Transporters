@@ -18,22 +18,8 @@ export default defineConfig({
         !page.includes('/thank-you') && 
         !page.includes('/404') &&
         !page.includes('/admin'),
-      changefreq: {
-        '/': 'daily',
-        '/services': 'weekly',
-        '/about': 'monthly',
-        '/contact': 'monthly',
-        '/quote': 'weekly',
-        '/fleet': 'monthly',
-      },
-      priority: {
-        '/': 1.0,
-        '/services': 0.9,
-        '/about': 0.8,
-        '/quote': 0.8,
-        '/fleet': 0.7,
-        '/contact': 0.7,
-      },
+      changefreq: 'weekly',
+      priority: 0.7,
     }), 
     compress()
   ],
@@ -54,8 +40,6 @@ export default defineConfig({
       "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
       "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
       "Cache-Control": "public, max-age=0, must-revalidate",
-
-      // CSP
       "Content-Security-Policy": `
         default-src 'self';
         script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://use.fontawesome.com https://www.google.com;
@@ -70,7 +54,6 @@ export default defineConfig({
       `
         .replace(/\s+/g, " ")
         .trim(),
-
       "X-Powered-By": "Astro",
     },
   },
