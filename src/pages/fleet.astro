@@ -1,0 +1,235 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+// Fleet vehicles data
+const fleet = [
+  {
+    name: 'Light Duty Trucks',
+    capacity: '1-3 tons',
+    size: 'Small',
+    idealFor: 'Small business deliveries, household items, electronics',
+    image: 'https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=600&h=400&fit=crop',
+    description: 'Perfect for urban deliveries and small cargo. Fuel efficient and easy to maneuver in city traffic.',
+    features: ['Perfect for urban deliveries', 'Fuel efficient', 'Easy loading/unloading', 'Air conditioned cabin']
+  },
+  {
+    name: 'Medium Duty Trucks',
+    capacity: '5-8 tons',
+    size: 'Medium',
+    idealFor: 'Retail goods, construction materials, furniture',
+    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop',
+    description: 'Versatile trucks ideal for regional transport. Reliable performance for medium-sized cargo.',
+    features: ['Great for regional transport', 'Reliable performance', 'All-weather capability', 'Hydraulic lift gate']
+  },
+  {
+    name: 'Heavy Duty Trucks',
+    capacity: '10-15 tons',
+    size: 'Large',
+    idealFor: 'Bulk cargo, industrial equipment, large consignments',
+    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop',
+    description: 'Powerful trucks designed for heavy loads and long distance haulage across Kenya.',
+    features: ['Maximum load capacity', 'Long distance ready', 'Tracked for safety', 'Air suspension system']
+  },
+  {
+    name: 'Refrigerated Trucks',
+    capacity: '3-5 tons',
+    size: 'Temperature Controlled',
+    idealFor: 'Perishable goods, food products, medical supplies',
+    image: 'https://images.unsplash.com/photo-1622822216348-e487ef7668a7?w=600&h=400&fit=crop',
+    description: 'Temperature-controlled vehicles for fresh and frozen goods. Perfect for food transport.',
+    features: ['Temperature monitored', 'Freshness guaranteed', 'Ideal for food transport', 'Real-time temperature logging']
+  },
+  {
+    name: 'Flatbed Trucks',
+    capacity: '8-12 tons',
+    size: 'Open',
+    idealFor: 'Construction materials, machinery, oversized items',
+    image: 'https://images.unsplash.com/photo-1581090464778-f20c2e7f0c1f?w=600&h=400&fit=crop',
+    description: 'Open flatbed trucks perfect for oversized cargo and construction materials.',
+    features: ['Easy side loading', 'Oversized cargo friendly', 'Quick turnarounds', 'Heavy duty tie-down points']
+  },
+  {
+    name: 'Pickup Trucks',
+    capacity: '0.5-1 ton',
+    size: 'Small',
+    idealFor: 'Quick local deliveries, documents, small packages',
+    image: 'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=600&h=400&fit=crop',
+    description: 'Fast and agile pickup trucks for urgent local deliveries and small packages.',
+    features: ['Fast delivery', 'Perfect for urgent items', 'City-friendly size', 'Covered cargo bed']
+  }
+];
+
+// Fleet statistics
+const fleetStats = [
+  { number: '15+', label: 'Active Trucks', icon: 'fa-truck' },
+  { number: '12', label: 'Professional Drivers', icon: 'fa-users' },
+  { number: '98%', label: 'On-Time Rate', icon: 'fa-clock' },
+  { number: '500+', label: 'Monthly Deliveries', icon: 'fa-boxes' }
+];
+---
+
+<Layout 
+  title="Our Fleet | Namema Transporters Kenya"
+  description="Explore Namema Transporters' modern fleet of trucks in Luanda, Kenya. From light duty to heavy duty, refrigerated trucks, and flatbeds for all your cargo needs."
+>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-namema-primary to-red-700 text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Fleet</h1>
+        <p class="text-xl max-w-3xl mx-auto">Modern, well-maintained vehicles for all your transport needs</p>
+      </div>
+    </section>
+    
+    <!-- Fleet Statistics -->
+    <section class="py-12 bg-namema-gray">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+          {fleetStats.map((stat, index) => (
+            <div class="text-center group">
+              <div class="text-4xl text-namema-primary mb-2 group-hover:scale-110 transition inline-block">
+                <i class={`fas ${stat.icon}`}></i>
+              </div>
+              <div class="text-2xl md:text-3xl font-bold text-namema-dark">{stat.number}</div>
+              <div class="text-gray-600 text-sm">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Fleet Grid with Real Truck Images -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-namema-dark mb-4">Our Vehicles</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Choose the right vehicle for your cargo needs</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {fleet.map((vehicle, index) => (
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
+              {/* Real Truck Image */}
+              <div class="h-56 overflow-hidden bg-gray-100">
+                <img 
+                  src={vehicle.image} 
+                  alt={vehicle.name}
+                  class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-5">
+                <h3 class="text-xl font-bold text-namema-dark mb-2">{vehicle.name}</h3>
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <span class="text-xs bg-namema-primary/10 text-namema-primary px-2 py-1 rounded-full font-semibold">{vehicle.capacity}</span>
+                  <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">{vehicle.size}</span>
+                </div>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed">{vehicle.description}</p>
+                <div class="mb-4">
+                  <p class="text-sm font-semibold text-namema-dark mb-2">Key Features:</p>
+                  <ul class="space-y-1.5">
+                    {vehicle.features.map(feature => (
+                      <li class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-check-circle text-namema-primary mr-2 text-xs flex-shrink-0"></i>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Why Our Fleet Section -->
+    <section class="py-20 bg-namema-gray">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-namema-dark mb-4">Why Choose Our Fleet</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">We maintain the highest standards for all our vehicles</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="text-center bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+            <div class="w-16 h-16 bg-namema-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-wrench text-white text-2xl"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Regular Maintenance</h3>
+            <p class="text-sm text-gray-600">All vehicles serviced regularly by certified mechanics for safety and reliability</p>
+          </div>
+          <div class="text-center bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+            <div class="w-16 h-16 bg-namema-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-chart-line text-white text-2xl"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">GPS Tracking</h3>
+            <p class="text-sm text-gray-600">Real-time location tracking for all our trucks. Know where your cargo is at all times</p>
+          </div>
+          <div class="text-center bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+            <div class="w-16 h-16 bg-namema-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-shield-alt text-white text-2xl"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Fully Insured</h3>
+            <p class="text-sm text-gray-600">Comprehensive insurance coverage for all cargo up to KES 5,000,000</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    {/* Fleet Gallery Showcase */}
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-namema-dark mb-4">Fleet Showcase</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">See our vehicles in action across Kenya</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div class="rounded-lg overflow-hidden h-24 md:h-32">
+            <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=200&h=150&fit=crop" alt="Fleet 1" class="w-full h-full object-cover hover:scale-110 transition duration-300"/>
+          </div>
+          <div class="rounded-lg overflow-hidden h-24 md:h-32">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=200&h=150&fit=crop" alt="Fleet 2" class="w-full h-full object-cover hover:scale-110 transition duration-300"/>
+          </div>
+          <div class="rounded-lg overflow-hidden h-24 md:h-32">
+            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=200&h=150&fit=crop" alt="Fleet 3" class="w-full h-full object-cover hover:scale-110 transition duration-300"/>
+          </div>
+          <div class="rounded-lg overflow-hidden h-24 md:h-32">
+            <img src="https://images.unsplash.com/photo-1622822216348-e487ef7668a7?w=200&h=150&fit=crop" alt="Fleet 4" class="w-full h-full object-cover hover:scale-110 transition duration-300"/>
+          </div>
+          <div class="rounded-lg overflow-hidden h-24 md:h-32">
+            <img src="https://images.unsplash.com/photo-1581090464778-f20c2e7f0c1f?w=200&h=150&fit=crop" alt="Fleet 5" class="w-full h-full object-cover hover:scale-110 transition duration-300"/>
+          </div>
+          <div class="rounded-lg overflow-hidden h-24 md:h-32">
+            <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?w=200&h=150&fit=crop" alt="Fleet 6" class="w-full h-full object-cover hover:scale-110 transition duration-300"/>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    {/* CTA Section */}
+    <section class="py-16 bg-gradient-to-r from-namema-primary to-red-800 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Need a vehicle for your cargo?</h2>
+        <p class="text-lg mb-6">Request a quote and we'll recommend the best option for your needs</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/quote" class="inline-flex items-center bg-white text-namema-primary px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition transform hover:scale-105">
+            Get a Quote <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+          <a href="/contact" class="inline-flex items-center border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-namema-primary transition transform hover:scale-105">
+            Contact Us <i class="fas fa-envelope ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppButton />
+</Layout>

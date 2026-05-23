@@ -1,0 +1,70 @@
+---
+// Header Component
+let isMenuOpen = false;
+---
+
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <nav class="container mx-auto px-4 md:px-6 py-4">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <div class="text-3xl animate-pulse-slow">
+          🚛
+        </div>
+        <div>
+          <h1 class="text-2xl font-bold text-namema-primary">NAMEMA</h1>
+          <p class="text-xs text-gray-600 -mt-1">TRANSPORTERS</p>
+        </div>
+      </div>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8">
+        <a href="/" class="text-gray-700 hover:text-namema-primary transition font-medium">Home</a>
+        <a href="/about" class="text-gray-700 hover:text-namema-primary transition font-medium">About</a>
+        <a href="/services" class="text-gray-700 hover:text-namema-primary transition font-medium">Services</a>
+        <a href="/fleet" class="text-gray-700 hover:text-namema-primary transition font-medium">Our Fleet</a>
+        <a href="/contact" class="text-gray-700 hover:text-namema-primary transition font-medium">Contact</a>
+      </div>
+      
+      <!-- CTA Buttons Desktop -->
+      <div class="hidden md:flex space-x-3">
+        <a href="/quote" class="bg-namema-primary text-white px-5 py-2 rounded-lg hover:bg-red-700 transition transform hover:scale-105">
+          Get Quote
+        </a>
+        <a href="tel:+254712345678" class="border-2 border-namema-primary text-namema-primary px-5 py-2 rounded-lg hover:bg-namema-primary hover:text-white transition">
+          <i class="fas fa-phone-alt mr-2" style="transform: scaleX(-1); display: inline-block;"></i>Call Now
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3 pb-4">
+      <a href="/" class="block text-gray-700 hover:text-namema-primary transition py-2">Home</a>
+      <a href="/about" class="block text-gray-700 hover:text-namema-primary transition py-2">About</a>
+      <a href="/services" class="block text-gray-700 hover:text-namema-primary transition py-2">Services</a>
+      <a href="/fleet" class="block text-gray-700 hover:text-namema-primary transition py-2">Our Fleet</a>
+      <a href="/contact" class="block text-gray-700 hover:text-namema-primary transition py-2">Contact</a>
+      <a href="/quote" class="block bg-namema-primary text-white px-5 py-2 rounded-lg text-center">Get Quote</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Safe element selection with null checks
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  let isMenuOpen = false;
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      mobileMenu.classList.toggle('hidden');
+      mobileMenuButton.innerHTML = isMenuOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+  }
+</script>

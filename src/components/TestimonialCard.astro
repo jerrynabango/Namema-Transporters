@@ -1,0 +1,47 @@
+---
+export interface Props {
+  name: string;
+  position: string;
+  company?: string;
+  testimonial: string;
+  rating: number;
+  image?: string;
+  delay?: number;
+}
+
+const { name, position, company, testimonial, rating, image, delay = 0 } = Astro.props;
+---
+
+<div 
+  class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+  style={`animation-delay: ${delay}s`}
+>
+  <!-- Rating Stars -->
+  <div class="flex mb-3">
+    {[...Array(5)].map((_, i) => (
+      <i class={`fas fa-star ${i < rating ? 'text-namema-secondary' : 'text-gray-300'} text-sm`}></i>
+    ))}
+  </div>
+  
+  <!-- Testimonial Text -->
+  <p class="text-gray-600 mb-4 italic leading-relaxed">"{testimonial}"</p>
+  
+  <!-- Divider -->
+  <div class="border-t border-gray-100 pt-4 mt-2">
+    <div class="flex items-center">
+      {image && (
+        <img 
+          src={image} 
+          alt={name} 
+          class="w-12 h-12 rounded-full object-cover mr-3"
+        />
+      )}
+      <div>
+        <h4 class="font-bold text-namema-dark">{name}</h4>
+        <p class="text-sm text-gray-500">
+          {position}{company && `, ${company}`}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

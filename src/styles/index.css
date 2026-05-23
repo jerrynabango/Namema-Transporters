@@ -1,0 +1,11 @@
+.stat-counter {
+  transition: all 0.3s ease;
+}
+
+.group:hover .group-hover\:scale-110 {
+  transform: scale(1.1);
+}
+
+#carouselTrack {
+  will-change: transform;
+}

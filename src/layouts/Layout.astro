@@ -1,0 +1,250 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+}
+
+const { 
+  title, 
+  description, 
+  keywords = 'transporters in Kenya, logistics Kenya, freight services, cargo transport, Namema Transporters, Luanda transport',
+  ogImage = 'https://namematransporters.co.ke/og-image.jpg'
+} = Astro.props;
+
+const currentYear = new Date().getFullYear();
+
+// Business Schema for Namema Transporters
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "TransportCompany",
+  "name": "Namema Transporters",
+  "alternateName": "Namema Logistics Kenya",
+  "url": "https://namematransporters.co.ke",
+  "logo": "https://namematransporters.co.ke/logo.png",
+  "description": description,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Luanda Town, Along Luanda-Kisumu Road",
+    "addressLocality": "Luanda",
+    "addressRegion": "Vihiga County",
+    "postalCode": "00100",
+    "addressCountry": "KE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "0.051456",
+    "longitude": "34.556897"
+  },
+  "telephone": "+254712345678",
+  "email": "info@namematransporters.co.ke",
+  "openingHours": "Mo-Fr 07:00-19:00, Sa 08:00-16:00",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "07:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "16:00"
+    }
+  ],
+  "areaServed": [
+    "Luanda", "Kisumu", "Kakamega", "Bungoma", "Busia", "Nairobi", "Mombasa", "Malaba"
+  ],
+  "priceRange": "$$",
+  "paymentAccepted": ["Cash", "M-Pesa", "Bank Transfer", "Credit Card"],
+  "hasMap": "https://maps.google.com/?q=Luanda+Kenya"
+};
+
+// Organization Schema for better SEO
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Namema Transporters",
+  "url": "https://namematransporters.co.ke",
+  "logo": "https://namematransporters.co.ke/logo.png",
+  "sameAs": [
+    "https://facebook.com/namematransporters",
+    "https://tiktok.com/@namematransporters"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+254712345678",
+    "contactType": "customer service",
+    "availableLanguage": ["English", "Swahili"]
+  }
+};
+
+// Website Schema
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Namema Transporters",
+  "url": "https://namematransporters.co.ke",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://namematransporters.co.ke/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  
+  <!-- Primary SEO -->
+  <title>{title} | Namema Transporters Kenya</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
+  <meta name="author" content="Namema Transporters" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href={Astro.url} />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content="Namema Transporters" />
+  <meta property="og:locale" content="en_KE" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={Astro.url} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={ogImage} />
+  
+  <!-- Kenya-specific Geo Tags -->
+  <meta name="geo.region" content="KE-45" />
+  <meta name="geo.placename" content="Luanda" />
+  <meta name="geo.position" content="0.051456;34.556897" />
+  <meta name="ICBM" content="0.051456, 34.556897" />
+  
+  <!-- Enhanced Security Headers (meta fallbacks) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(self), microphone=(), camera=()" />
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome Icons (with SRI for security) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  
+  <style is:global>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D32F2F;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b71c1c;
+    }
+    
+    /* Focus ring for accessibility */
+    :focus-visible {
+      outline: 2px solid #D32F2F;
+      outline-offset: 2px;
+    }
+    
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    
+    /* Selection color */
+    ::selection {
+      background: #D32F2F;
+      color: white;
+    }
+    
+    ::-moz-selection {
+      background: #D32F2F;
+      color: white;
+    }
+  </style>
+  
+  <slot name="head" />
+</head>
+
+<body class="bg-white">
+  <slot />
+  
+  <!-- ✅ REMOVED: Cloudflare Turnstile - Now using Netlify Forms -->
+  
+  <!-- CSP violation reporter (for monitoring) -->
+  <script>
+    if (typeof document !== 'undefined') {
+      document.addEventListener('securitypolicyviolation', (e) => {
+        // Only log in development, silently handle in production
+        if (import.meta.env.DEV) {
+          console.warn('CSP Violation:', e.violatedDirective, e.blockedURI);
+        }
+      });
+    }
+    
+    // Performance monitoring (optional)
+    if ('PerformanceObserver' in window) {
+      const perfObserver = new PerformanceObserver((list) => {
+        if (import.meta.env.DEV) {
+          console.log('Performance entries:', list.getEntries());
+        }
+      });
+      perfObserver.observe({ entryTypes: ['largest-contentful-paint', 'first-input'] });
+    }
+  </script>
+</body>
+</html>

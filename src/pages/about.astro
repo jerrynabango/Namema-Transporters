@@ -1,0 +1,374 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const employeePhotos = [
+  { name: 'Edmond Namema', role: 'Founder and CEO', image: 'https://randomuser.me/api/portraits/men/1.jpg' },
+  { name: 'Michael Otieno', role: 'Operations Lead', image: 'https://randomuser.me/api/portraits/men/2.jpg' },
+  { name: 'Sarah Wanjiku', role: 'Logistics Coordinator', image: 'https://randomuser.me/api/portraits/women/1.jpg' },
+  { name: 'Peter Omondi', role: 'Senior Driver', image: 'https://randomuser.me/api/portraits/men/3.jpg' },
+  { name: 'Mary Akinyi', role: 'Cargo Handler', image: 'https://randomuser.me/api/portraits/women/2.jpg' },
+  { name: 'James Mwangi', role: 'Fleet Manager', image: 'https://randomuser.me/api/portraits/men/4.jpg' },
+  { name: 'Lucy Atieno', role: 'Customer Care', image: 'https://randomuser.me/api/portraits/women/3.jpg' },
+  { name: 'David Kipruto', role: 'Driver', image: 'https://randomuser.me/api/portraits/men/5.jpg' },
+  { name: 'Grace Nduta', role: 'Warehouse Lead', image: 'https://randomuser.me/api/portraits/women/4.jpg' },
+  { name: 'Simon Kimathi', role: 'Loading Specialist', image: 'https://randomuser.me/api/portraits/men/6.jpg' }
+];
+
+const milestones = [
+  { 
+    year: '2021', 
+    title: 'Company Founded', 
+    description: 'Started operations in Luanda with 2 trucks serving Western Kenya.',
+    insight1: 'Our journey began with a vision to transform logistics in Western Kenya.',
+    insight2: 'We started small but with big dreams of serving our community.'
+  },
+  { 
+    year: '2022', 
+    title: 'Services Expanded', 
+    description: 'Began offering transport services to schools, construction sites, and companies.',
+    insight1: 'We diversified our services to meet the growing needs of our clients.',
+    insight2: 'Local schools and businesses became our trusted partners.'
+  },
+  { 
+    year: '2023', 
+    title: 'Long Distance Services', 
+    description: 'Expanded to cover Nairobi, Mombasa, and border points like Malaba and Busia.',
+    insight1: 'We connected Western Kenya to the rest of the country.',
+    insight2: 'Cross-border logistics opened new opportunities for our clients.'
+  },
+  { 
+    year: '2024', 
+    title: 'Fleet and Team Growth', 
+    description: 'Grew fleet to 15 trucks and built a dedicated team of 30 plus professionals.',
+    insight1: 'Investment in modern trucks improved service reliability.',
+    insight2: 'Our team grew with skilled professionals who share our vision.'
+  },
+  { 
+    year: '2025', 
+    title: 'Digital Transformation', 
+    description: 'Launched real-time cargo tracking system and enhanced customer service.',
+    insight1: 'Technology now allows clients to track their goods in real-time.',
+    insight2: 'We continue to innovate for better customer experience.'
+  }
+];
+
+const stats = [
+  { value: 4, label: 'Years of Excellence', suffix: '+', icon: 'fa-calendar-alt' },
+  { value: 500, label: 'Deliveries Monthly', suffix: '+', icon: 'fa-truck' },
+  { value: 98, label: 'Client Satisfaction', suffix: '%', icon: 'fa-smile' },
+  { value: 30, label: 'Team Members', suffix: '+', icon: 'fa-users' }
+];
+---
+
+<Layout 
+  title="About Namema Transporters | Our Story and Mission"
+  description="Learn about Namema Transporters - Kenya's trusted logistics company based in Luanda, offering freight forwarding, cargo transport, and warehousing services."
+>
+  <Header />
+  
+  <main>
+    <section class="relative bg-gradient-to-r from-namema-primary to-red-700 text-white py-20 overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full" style="animation: pulse 3s ease-in-out infinite;"></div>
+        <div class="absolute bottom-10 right-10 w-48 h-48 bg-yellow-400 rounded-full" style="animation: pulse 3s ease-in-out infinite 1s;"></div>
+      </div>
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">About Namema Transporters</h1>
+        <p class="text-xl max-w-3xl mx-auto">Kenya's Growing Logistics Partner Since 2021</p>
+        <p class="text-md max-w-2xl mx-auto mt-4 text-white/80">Proudly serving from our headquarters in Luanda, Western Kenya</p>
+      </div>
+    </section>
+    
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold mb-6 text-namema-dark">Our Story</h2>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              Founded in 2021, Namema Transporters started as a small family-owned business with just two trucks serving the Luanda area. Our founder,  Namema, saw a gap in the market for reliable, affordable, and professional transport services in Western Kenya.
+            </p>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              In just 4 years, we have grown into a trusted logistics company serving individuals, schools, companies, and construction sites across Western Kenya and beyond. We have expanded our reach to far-flung destinations including Nairobi, Mombasa, and border points like Malaba and Busia.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Today, we operate a growing fleet of 15 vehicles, employ over 30 dedicated staff, and process more than 500 deliveries monthly. All operations are managed from our headquarters in Luanda, where we plan, coordinate, and execute every delivery with precision and care.
+            </p>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600" alt="Namema Transporters History" class="rounded-lg shadow-xl w-full" />
+            <div class="bg-namema-primary text-white p-4 rounded-lg mt-4 text-center">
+              <i class="fas fa-quote-left text-2xl mb-2"></i>
+              <p class="italic">Building Kenya's logistics future, one delivery at a time.</p>
+              <p class="font-bold mt-2">- Edmond Namema, Founder</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-namema-dark mb-4">Our Purpose</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Guiding principles that drive everything we do</p>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div class="group relative">
+            <div class="absolute -inset-1 bg-gradient-to-r from-namema-primary to-red-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+            <div class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div class="flex items-start mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-namema-primary to-red-600 rounded-2xl flex items-center justify-center mr-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300">
+                  <i class="fas fa-bullseye text-3xl text-white"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-namema-dark">Our Mission</h3>
+                  <div class="w-12 h-1 bg-namema-primary mt-2"></div>
+                </div>
+              </div>
+              <p class="text-gray-600 leading-relaxed text-lg">
+                To provide efficient, reliable, and affordable logistics solutions that empower businesses across Western Kenya to grow and succeed, while maintaining the highest standards of safety and professionalism.
+              </p>
+              <div class="mt-6 flex items-center text-namema-primary">
+                <span class="text-sm font-semibold">Every day, every delivery</span>
+                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="group relative">
+            <div class="absolute -inset-1 bg-gradient-to-r from-namema-secondary to-yellow-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+            <div class="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div class="flex items-start mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-namema-secondary to-yellow-500 rounded-2xl flex items-center justify-center mr-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300">
+                  <i class="fas fa-eye text-3xl text-namema-dark"></i>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-namema-dark">Our Vision</h3>
+                  <div class="w-12 h-1 bg-namema-secondary mt-2"></div>
+                </div>
+              </div>
+              <p class="text-gray-600 leading-relaxed text-lg">
+                To become Western Kenya's leading logistics provider, setting the standard for excellence in transport, warehousing, and supply chain management across the region.
+              </p>
+              <div class="mt-6 flex items-center text-namema-secondary">
+                <span class="text-sm font-semibold">Leading logistics in Western Kenya</span>
+                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-16 bg-namema-primary" id="stats-section">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <div class="text-center text-white">
+              <div class="text-5xl mb-3">
+                <i class={`fas ${stat.icon}`}></i>
+              </div>
+              <div class="text-4xl md:text-5xl font-bold mb-2">
+                <span class="counter" data-target={String(stat.value)}>0</span>{stat.suffix}
+              </div>
+              <div class="text-white text-sm uppercase tracking-wide">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-namema-dark mb-4">Our Core Values</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">The principles that guide our every action and decision</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-namema-primary">
+            <div class="flex items-start">
+              <div class="w-14 h-14 bg-namema-primary rounded-full flex items-center justify-center mr-4 shadow-lg flex-shrink-0">
+                <i class="fas fa-handshake text-2xl text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-namema-dark mb-2">Integrity</h3>
+                <p class="text-gray-600 text-sm">We operate with complete honesty and transparency. No hidden costs, no false promises.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-namema-primary">
+            <div class="flex items-start">
+              <div class="w-14 h-14 bg-namema-primary rounded-full flex items-center justify-center mr-4 shadow-lg flex-shrink-0">
+                <i class="fas fa-clock text-2xl text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-namema-dark mb-2">Reliability</h3>
+                <p class="text-gray-600 text-sm">We guarantee on-time delivery and careful handling of every shipment, every time.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-namema-primary">
+            <div class="flex items-start">
+              <div class="w-14 h-14 bg-namema-primary rounded-full flex items-center justify-center mr-4 shadow-lg flex-shrink-0">
+                <i class="fas fa-users text-2xl text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-namema-dark mb-2">Customer First</h3>
+                <p class="text-gray-600 text-sm">Your satisfaction is our priority. We listen and respond quickly to your needs.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-l-4 border-namema-primary">
+            <div class="flex items-start">
+              <div class="w-14 h-14 bg-namema-primary rounded-full flex items-center justify-center mr-4 shadow-lg flex-shrink-0">
+                <i class="fas fa-chart-line text-2xl text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-namema-dark mb-2">Innovation</h3>
+                <p class="text-gray-600 text-sm">We embrace new technology to improve our services, from real-time tracking to efficient routing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Our Journey</h2>
+          <p class="text-gray-300 mb-4 max-w-2xl mx-auto">Key milestones in our growth story since 2021</p>
+          <p class="text-gray-400 text-sm max-w-2xl mx-auto">From our headquarters in Luanda, serving clients across Kenya</p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto relative">
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-namema-primary/50 hidden md:block"></div>
+          
+          {milestones.map((milestone, index) => (
+            <div class={`relative flex flex-col md:flex-row items-center mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+              <div class={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                  <div class="inline-block bg-namema-primary text-white px-3 py-1 rounded-full text-sm font-bold mb-3">{milestone.year}</div>
+                  <h3 class="text-xl font-bold mb-2 text-white">{milestone.title}</h3>
+                  <p class="text-gray-300 mb-3">{milestone.description}</p>
+                  <div class="border-t border-white/20 pt-3 mt-2">
+                    <p class="text-gray-400 text-sm italic mb-1">- {milestone.insight1}</p>
+                    <p class="text-gray-400 text-sm italic">- {milestone.insight2}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-namema-primary rounded-full hidden md:block z-10"></div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="text-center mt-8">
+          <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
+            <i class="fas fa-map-marker-alt text-namema-secondary mr-2"></i>
+            <span class="text-gray-300 text-sm">All operations managed from our headquarters in Luanda, Western Kenya</span>
+          </div>
+        </div>
+        
+        <div class="mt-10 bg-white/10 rounded-2xl p-5">
+          <div class="text-center mb-3">
+            <i class="fas fa-road text-namema-secondary text-2xl mb-1"></i>
+            <h3 class="text-lg font-semibold text-white">Our Growth Journey</h3>
+            <p class="text-gray-400 text-xs">From 2021 to present</p>
+          </div>
+          <div class="relative h-2 bg-gray-700 rounded-full overflow-hidden">
+            <div class="absolute left-0 top-0 h-full bg-namema-primary rounded-full" style="width: 100%;"></div>
+          </div>
+          <div class="flex justify-between mt-2 text-xs text-gray-400">
+            <span>2021</span>
+            <span>2022</span>
+            <span>2023</span>
+            <span>2024</span>
+            <span>2025</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-namema-dark">Meet Our Team</h2>
+        <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">The dedicated professionals behind every successful delivery</p>
+        
+        <div class="max-w-md mx-auto mb-16">
+          <div class="bg-gradient-to-br from-namema-primary to-red-700 rounded-2xl p-8 text-white text-center shadow-2xl">
+            <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-xl overflow-hidden">
+              <i class="fas fa-crown text-5xl text-namema-primary"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-1">Edmond Namema</h3>
+            <p class="text-yellow-200 font-semibold mb-3">Founder and CEO</p>
+            <p class="text-white text-sm">Leading Namema Transporters with vision and hands-on leadership</p>
+            <div class="mt-4 pt-4 border-t border-white">
+              <p class="text-sm italic">I work alongside my team every day to ensure your goods reach safely.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="scrolling-gallery">
+          <div class="gallery-track">
+            {employeePhotos.slice(1).map((employee, idx) => (
+              <div class="gallery-item">
+                <div class="gallery-image-wrapper">
+                  <img src={employee.image} alt={employee.name} class="gallery-image" />
+                  <div class="gallery-overlay">
+                    <p class="overlay-name">{employee.name}</p>
+                    <p class="overlay-role">{employee.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+            {employeePhotos.slice(1).map((employee, idx) => (
+              <div class="gallery-item">
+                <div class="gallery-image-wrapper">
+                  <img src={employee.image} alt={employee.name} class="gallery-image" />
+                  <div class="gallery-overlay">
+                    <p class="overlay-name">{employee.name}</p>
+                    <p class="overlay-role">{employee.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <p class="text-center text-gray-500 text-sm mt-6">
+          <i class="fas fa-arrows-alt-h text-namema-primary mr-1"></i> 
+          Hover over any photo to see team member details
+        </p>
+      </div>
+    </section>
+    
+    <section class="py-16 bg-gradient-to-r from-namema-primary to-red-800 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Partner With Us Today</h2>
+        <p class="text-xl mb-6">Join the growing number of businesses who trust Namema Transporters</p>
+        <a href="/contact" class="inline-flex items-center bg-namema-secondary text-namema-dark px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition-all duration-300 transform hover:scale-105 shadow-lg">
+          Contact Us Today <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppButton />
+</Layout>
+
+<script>
+  import '../scripts/about.js';
+</script>
+
+<style is:global>
+  @import '../styles/about.css';
+</style>

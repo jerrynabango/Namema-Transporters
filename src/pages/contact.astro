@@ -1,0 +1,258 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+---
+
+<Layout 
+  title="Contact Namema Transporters | Get in Touch"
+  description="Contact Namema Transporters for all your logistics needs in Kenya. Call, email, or visit our offices in Luanda. We're here 24/7 to help with your cargo transport requirements."
+>
+  <Header />
+  
+  <main>
+    <section class="relative bg-gradient-to-r from-namema-primary to-red-700 text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+        <p class="text-xl max-w-3xl mx-auto">We're here to help with all your transport needs</p>
+      </div>
+    </section>
+    
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="bg-namema-primary text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg">
+              <i class="fas fa-phone-alt text-3xl" style="transform: scaleX(-1); display: inline-block;"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-namema-dark">Phone</h3>
+            <p class="text-gray-600 mb-3">Call us anytime, 24/7</p>
+            <a href="tel:+254712345678" class="text-namema-primary font-bold block hover:underline">+254 712 345 678</a>
+            <a href="tel:+254723456789" class="text-namema-primary font-bold block hover:underline">+254 723 456 789</a>
+          </div>
+          
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="bg-blue-500 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg">
+              <i class="fas fa-envelope text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-namema-dark">Email</h3>
+            <p class="text-gray-600 mb-3">Send us an email</p>
+            <a href="mailto:info@namematransporters.co.ke" class="text-namema-primary font-bold block hover:underline">info@namematransporters.co.ke</a>
+            <a href="mailto:support@namematransporters.co.ke" class="text-namema-primary font-bold block hover:underline">support@namematransporters.co.ke</a>
+          </div>
+          
+          <div class="bg-white p-6 rounded-lg shadow-lg text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="bg-green-500 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-all duration-300 shadow-lg">
+              <i class="fab fa-whatsapp text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-namema-dark">WhatsApp</h3>
+            <p class="text-gray-600 mb-3">Chat with us on WhatsApp</p>
+            <a href="https://wa.me/254723456789" class="text-namema-primary font-bold block hover:underline">+254 723 456 789</a>
+          </div>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div class="bg-white rounded-lg shadow-xl p-8">
+            <h2 class="text-2xl font-bold mb-2 text-namema-dark">Send Us a Message</h2>
+            <p class="text-gray-500 text-sm mb-6">For general inquiries, support, or feedback. For quotes, please use our <a href="/quote" class="text-namema-primary font-semibold hover:underline">quote request form</a>.</p>
+            
+            <!-- NETLIFY FORM -->
+            <form data-netlify="true" data-netlify-honeypot="bot-field" name="contact" method="POST" action="/thank-you" class="space-y-4">
+              <!-- Required Netlify form fields -->
+              <input type="hidden" name="form-name" value="contact" />
+              <p class="hidden">
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+              </p>
+              
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium mb-2 text-gray-700">Full Name *</label>
+                  <input type="text" name="name" required class="contact-input w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-2 text-gray-700">Phone Number *</label>
+                  <input type="tel" name="phone" required class="contact-input w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none" />
+                </div>
+              </div>
+              
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium mb-2 text-gray-700">Email Address</label>
+                  <input type="email" name="email" class="contact-input w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-2 text-gray-700">Subject *</label>
+                  <select name="subject" required class="contact-select w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none bg-white">
+                    <option value="">Select a subject</option>
+                    <option>General Inquiry</option>
+                    <option>Support Request</option>
+                    <option>Feedback / Suggestion</option>
+                    <option>Complaint</option>
+                    <option>Partnership Opportunity</option>
+                    <option>Employment Inquiry</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-700">Message *</label>
+                <textarea name="message" rows="5" placeholder="Please describe your inquiry, question, or concern in detail..." required class="contact-textarea w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none resize-none"></textarea>
+              </div>
+              
+              <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 transition-all duration-300 hover:border-namema-primary">
+                <label class="block text-sm font-medium mb-2 text-gray-700">Attach File (Optional)</label>
+                <div class="flex items-center justify-center w-full">
+                  <label class="flex flex-col items-center justify-center w-full cursor-pointer">
+                    <div class="flex flex-col items-center justify-center pt-3 pb-2">
+                      <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                      <p class="text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                      <p class="text-xs text-gray-400 mt-1">Images, PDF, Word, Excel (Max 5MB)</p>
+                    </div>
+                    <input type="file" name="attachment" class="hidden" accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.txt" />
+                  </label>
+                </div>
+                <div id="selected-file" class="hidden mt-2 p-2 bg-gray-50 rounded-lg">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                      <i class="fas fa-file-alt text-namema-primary mr-2"></i>
+                      <span id="file-name" class="text-sm text-gray-600"></span>
+                    </div>
+                    <button type="button" id="remove-file" class="text-red-500 hover:text-red-700"><i class="fas fa-times"></i></button>
+                  </div>
+                </div>
+              </div>
+              
+              <button type="submit" class="w-full bg-namema-primary text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-all duration-300 transform hover:scale-105">
+                Send Message <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+              
+              <p class="text-center text-xs text-gray-400">For urgent matters, please call us directly at <a href="tel:+254712345678" class="text-namema-primary">+254 712 345 678</a></p>
+            </form>
+          </div>
+          
+          <div>
+            <div class="bg-white rounded-lg shadow-xl p-8">
+              <h2 class="text-2xl font-bold mb-4 text-namema-dark">Our Office Location</h2>
+              <div class="mb-6 p-4 bg-gray-50 rounded-lg">
+                <div class="flex items-start mb-3">
+                  <i class="fas fa-map-marker-alt text-namema-primary text-xl mr-3 mt-1"></i>
+                  <div><strong class="text-namema-dark">Namema Transporters HQ</strong><br />Luanda Town, Along Luanda-Kisumu Road<br />Opposite Luanda Market<br />Luanda, Vihiga County, Kenya</div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-clock text-namema-primary text-xl mr-3 mt-1"></i>
+                  <div><strong>Office Hours:</strong><br />Monday-Friday: 7:00 AM - 7:00 PM<br />Saturday: 8:00 AM - 4:00 PM<br />Sunday: Closed (Emergency support available)</div>
+                </div>
+              </div>
+              <div class="rounded-lg overflow-hidden shadow-md">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63870.97047589047!2d34.556897!3d0.051456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1780c9d08d5e4051%3A0x8e8b8b8b8b8b8b8b!2sLuanda%2C%20Kenya!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+              <div class="mt-4">
+                <a href="https://maps.google.com/?q=Luanda+Kenya" target="_blank" class="inline-flex items-center justify-center w-full bg-namema-primary text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300">
+                  <i class="fas fa-directions mr-2"></i> Get Directions
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20 bg-gradient-to-br from-namema-gray to-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-namema-dark">Frequently Asked Questions</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Find answers to common questions about our transport services in Kenya</p>
+        
+        <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div class="space-y-4">
+            <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+              <button class="faq-question w-full text-left px-6 py-4 font-bold text-lg text-namema-dark flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                <span class="flex items-center"><i class="fas fa-truck-fast text-namema-primary mr-3"></i>How quickly can you provide a quote?</span>
+                <i class="fas fa-chevron-down text-namema-primary faq-icon"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-4 text-gray-600"><div class="pt-2 border-t border-gray-100"><p>We typically respond within <strong class="text-namema-primary">15-30 minutes</strong> during business hours (Monday-Saturday, 7 AM - 7 PM).</p></div></div>
+            </div>
+            <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+              <button class="faq-question w-full text-left px-6 py-4 font-bold text-lg text-namema-dark flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                <span class="flex items-center"><i class="fas fa-shield-alt text-namema-primary mr-3"></i>Do you offer insurance for cargo?</span>
+                <i class="fas fa-chevron-down text-namema-primary faq-icon"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-4 text-gray-600"><div class="pt-2 border-t border-gray-100"><p>Yes, we provide <strong>comprehensive cargo insurance coverage</strong> for all shipments.</p></div></div>
+            </div>
+            <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+              <button class="faq-question w-full text-left px-6 py-4 font-bold text-lg text-namema-dark flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                <span class="flex items-center"><i class="fas fa-money-bill-wave text-namema-primary mr-3"></i>What payment methods do you accept?</span>
+                <i class="fas fa-chevron-down text-namema-primary faq-icon"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-4 text-gray-600"><div class="pt-2 border-t border-gray-100"><p>We accept M-Pesa, Bank Transfer, Cash, Credit/Debit Cards.</p></div></div>
+            </div>
+            <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+              <button class="faq-question w-full text-left px-6 py-4 font-bold text-lg text-namema-dark flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                <span class="flex items-center"><i class="fas fa-map-marked-alt text-namema-primary mr-3"></i>Which areas do you serve in Kenya?</span>
+                <i class="fas fa-chevron-down text-namema-primary faq-icon"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-4 text-gray-600"><div class="pt-2 border-t border-gray-100"><p>We serve all major cities and towns across Kenya including Nairobi, Mombasa, Kisumu, and border points.</p></div></div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+              <button class="faq-question w-full text-left px-6 py-4 font-bold text-lg text-namema-dark flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                <span class="flex items-center"><i class="fas fa-chart-line text-namema-primary mr-3"></i>Can I track my shipment in real-time?</span>
+                <i class="fas fa-chevron-down text-namema-primary faq-icon"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-4 text-gray-600"><div class="pt-2 border-t border-gray-100"><p>Yes! Contact our support team with your booking reference to get tracking updates.</p></div></div>
+            </div>
+            <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+              <button class="faq-question w-full text-left px-6 py-4 font-bold text-lg text-namema-dark flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                <span class="flex items-center"><i class="fas fa-clock text-namema-primary mr-3"></i>What are your delivery timeframes?</span>
+                <i class="fas fa-chevron-down text-namema-primary faq-icon"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-4 text-gray-600"><div class="pt-2 border-t border-gray-100"><p>Luanda - Kisumu: 1-2 hours, Luanda - Nairobi: 6-8 hours, Luanda - Mombasa: 14-16 hours.</p></div></div>
+            </div>
+            <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+              <button class="faq-question w-full text-left px-6 py-4 font-bold text-lg text-namema-dark flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                <span class="flex items-center"><i class="fas fa-boxes text-namema-primary mr-3"></i>Do you handle fragile or special items?</span>
+                <i class="fas fa-chevron-down text-namema-primary faq-icon"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-4 text-gray-600"><div class="pt-2 border-t border-gray-100"><p>Yes, we specialize in handling fragile and special items with care.</p></div></div>
+            </div>
+            <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+              <button class="faq-question w-full text-left px-6 py-4 font-bold text-lg text-namema-dark flex justify-between items-center hover:bg-gray-50 transition-colors duration-300">
+                <span class="flex items-center"><i class="fas fa-percent text-namema-primary mr-3"></i>Do you offer discounts for regular customers?</span>
+                <i class="fas fa-chevron-down text-namema-primary faq-icon"></i>
+              </button>
+              <div class="faq-answer hidden px-6 pb-4 text-gray-600"><div class="pt-2 border-t border-gray-100"><p>Yes! 10% discount for 5+ shipments per month, 15% for 10+ shipments.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-16 bg-gradient-to-r from-namema-primary to-red-800 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-2xl md:text-3xl font-bold mb-3">Still have questions?</h3>
+        <p class="text-lg mb-6">Our team is ready to assist you with any inquiries</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="tel:+254712345678" class="inline-flex items-center bg-white text-namema-primary px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition transform hover:scale-105">
+            <i class="fas fa-phone-alt mr-2" style="transform: scaleX(-1); display: inline-block;"></i> Call Us Now
+          </a>
+          <a href="https://wa.me/254723456789" class="inline-flex items-center bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition transform hover:scale-105">
+            <i class="fab fa-whatsapp mr-2"></i> WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppButton />
+</Layout>
+
+<script>
+  import '../scripts/contact.js';
+</script>
+
+<style is:global>
+  @import '../styles/contact.css';
+</style>

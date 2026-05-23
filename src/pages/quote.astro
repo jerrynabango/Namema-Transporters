@@ -1,0 +1,313 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+// Get vehicle from URL parameters (optional - if coming from fleet page)
+const urlParams = new URL(Astro.url).searchParams;
+const preselectedVehicle = urlParams.get('vehicle') || '';
+
+// Truck data with images
+const trucks = [
+  { 
+    id: 'light', 
+    name: 'Light Duty Trucks', 
+    capacity: '1-3 tons', 
+    size: 'Small',
+    image: 'https://images.pexels.com/photos/2973050/pexels-photo-2973050.jpeg',
+    description: 'Perfect for small deliveries'
+  },
+  { 
+    id: 'medium', 
+    name: 'Medium Duty Trucks', 
+    capacity: '5-8 tons', 
+    size: 'Medium',
+    image: 'https://images.pexels.com/photos/2973052/pexels-photo-2973052.jpeg',
+    description: 'Ideal for retail and construction'
+  },
+  { 
+    id: 'heavy', 
+    name: 'Heavy Duty Trucks', 
+    capacity: '10-15 tons', 
+    size: 'Large',
+    image: 'https://images.pexels.com/photos/162539/truck-vehicle-heavy-goods-vehicle-hgv-162539.jpeg',
+    description: 'For bulk cargo and long distance'
+  },
+  { 
+    id: 'refrigerated', 
+    name: 'Refrigerated Trucks', 
+    capacity: '3-5 tons', 
+    size: 'Temperature Controlled',
+    image: 'https://images.pexels.com/photos/11667509/pexels-photo-11667509.jpeg',
+    description: 'For perishable goods'
+  },
+  { 
+    id: 'flatbed', 
+    name: 'Flatbed Trucks', 
+    capacity: '8-12 tons', 
+    size: 'Open',
+    image: 'https://images.pexels.com/photos/2973049/pexels-photo-2973049.jpeg',
+    description: 'For oversized cargo'
+  },
+  { 
+    id: 'pickup', 
+    name: 'Pickup Trucks', 
+    capacity: '0.5-1 ton', 
+    size: 'Small',
+    image: 'https://images.pexels.com/photos/4194471/pexels-photo-4194471.jpeg',
+    description: 'Quick local deliveries'
+  }
+];
+---
+
+<Layout 
+  title="Get Free Quote | Transport Services Kenya"
+  description="Request a free, no-obligation quote for transport and logistics services in Kenya. Get competitive rates for freight forwarding, cargo transport, warehousing, and moving services."
+>
+  <Header />
+  
+  <main>
+    <section class="relative bg-gradient-to-r from-namema-primary to-red-700 text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Get a Free Quote</h1>
+        <p class="text-xl max-w-3xl mx-auto">Fast, competitive rates for all your transport and moving needs</p>
+      </div>
+    </section>
+    
+    <section class="py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="bg-white rounded-lg shadow-xl p-8">
+          
+          {preselectedVehicle && (
+            <div class="mb-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+              <div class="flex items-start">
+                <i class="fas fa-truck text-blue-500 text-xl mr-3 mt-0.5"></i>
+                <div>
+                  <p class="text-sm text-gray-700">
+                    <strong>Vehicle selected: {preselectedVehicle}</strong>
+                  </p>
+                  <p class="text-xs text-gray-500 mt-1">
+                    This vehicle type has been pre-filled for you. You can change it if needed.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+          
+          <!-- NETLIFY FORM -->
+          <form data-netlify="true" data-netlify-honeypot="bot-field" name="quote" method="POST" action="/thank-you" class="space-y-6">
+            <!-- Required Netlify form fields -->
+            <input type="hidden" name="form-name" value="quote" />
+            <p class="hidden">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+            
+            <!-- Personal Information -->
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-700">Full Name *</label>
+                <input type="text" name="name" required class="quote-input w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-700">Phone Number *</label>
+                <input type="tel" name="phone" required class="quote-input w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none" />
+              </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-700">Email Address</label>
+                <input type="email" name="email" class="quote-input w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-700">Company Name <span class="text-gray-400 text-xs">(Optional)</span></label>
+                <input type="text" name="company" placeholder="e.g., Jomawa Enterprises" class="quote-input w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none" />
+              </div>
+            </div>
+            
+            <!-- Truck Selector with Images -->
+            <div>
+              <label class="block text-sm font-medium mb-2 text-gray-700">Select Your Preferred Truck <span class="text-gray-400 text-xs">(Optional)</span></label>
+              <div class="relative">
+                <input type="hidden" name="truck_type" id="truck_type_input" value={preselectedVehicle || ''} />
+                <button type="button" id="truckSelectorBtn" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg bg-white text-left flex items-center justify-between hover:border-namema-primary transition">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gray-100 rounded-lg overflow-hidden">
+                      <img id="selectedTruckImage" src="https://images.pexels.com/photos/2973050/pexels-photo-2973050.jpeg" alt="Truck" class="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <span id="selectedTruckName" class="font-medium text-gray-800">Select a truck</span>
+                      <span id="selectedTruckDesc" class="text-xs text-gray-500 block"></span>
+                    </div>
+                  </div>
+                  <i class="fas fa-chevron-down text-gray-400"></i>
+                </button>
+                
+                <!-- Dropdown Panel -->
+                <div id="truckDropdown" class="hidden-dropdown absolute z-20 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden">
+                  <div class="max-h-80 overflow-y-auto">
+                    <div class="p-2 border-b border-gray-100 bg-gray-50">
+                      <button type="button" data-truck-id="" data-truck-name="" data-truck-capacity="" data-truck-image="" class="not-sure-btn w-full text-left px-3 py-2 rounded-lg text-gray-500 hover:bg-gray-100">
+                        <div class="flex items-center gap-3">
+                          <div class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-question text-gray-400"></i>
+                          </div>
+                          <div>
+                            <div class="font-medium">I am not sure - recommend a vehicle for me</div>
+                            <div class="text-xs text-gray-400">Let us choose the best option</div>
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                    {trucks.map(truck => (
+                      <button 
+                        type="button" 
+                        data-truck-id={truck.id}
+                        data-truck-name={truck.name}
+                        data-truck-capacity={truck.capacity}
+                        data-truck-image={truck.image}
+                        class="truck-option w-full text-left px-4 py-3 hover:bg-gray-50 transition border-b border-gray-100 last:border-b-0"
+                      >
+                        <div class="flex items-center gap-4">
+                          <div class="w-16 h-12 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                            <img src={truck.image} alt={truck.name} class="w-full h-full object-cover" />
+                          </div>
+                          <div class="flex-1">
+                            <div class="font-semibold text-gray-800">{truck.name}</div>
+                            <div class="flex gap-2 mt-1">
+                              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{truck.capacity}</span>
+                              <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{truck.size}</span>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">{truck.description}</p>
+                          </div>
+                          <i class="fas fa-truck text-gray-300"></i>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-gray-400 mt-1">Select a truck type to help us recommend the best option for your cargo</p>
+            </div>
+            
+            <!-- Service Type -->
+            <div>
+              <label class="block text-sm font-medium mb-2 text-gray-700">Service Type *</label>
+              <select name="service_type" required class="quote-select w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none bg-white">
+                <option value="">Select a service</option>
+                <option value="Freight Forwarding">Freight Forwarding</option>
+                <option value="Full Truckload (FTL)">Full Truckload (FTL)</option>
+                <option value="Less Than Truckload (LTL)">Less Than Truckload (LTL)</option>
+                <option value="Warehousing and Storage">Warehousing and Storage</option>
+                <option value="Last Mile Delivery">Last Mile Delivery</option>
+                <option value="Packing and Moving">Packing and Moving</option>
+                <option value="Agricultural and Farm Produce Transport">Agricultural and Farm Produce Transport</option>
+              </select>
+            </div>
+            
+            <!-- From - To -->
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-700">From *</label>
+                <input type="text" name="from_location" required placeholder="e.g., Luanda, Kisumu, Nairobi" class="quote-input w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none" />
+                <p class="text-xs text-gray-400 mt-1">Pickup location or current location</p>
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-700">To *</label>
+                <input type="text" name="to_location" required placeholder="e.g., Mombasa, Nakuru, Eldoret" class="quote-input w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none" />
+                <p class="text-xs text-gray-400 mt-1">Delivery location or destination</p>
+              </div>
+            </div>
+            
+            <!-- Cargo Type -->
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-700">Cargo Type *</label>
+                <select name="cargo_type" required class="quote-select w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none bg-white">
+                  <option value="">Select cargo type</option>
+                  <option value="General Goods - Regular cargo">General Goods - Regular cargo</option>
+                  <option value="Farm Produce - Maize, Tea, Coffee, Sugarcane, Vegetables">Farm Produce - Maize, Tea, Coffee, Sugarcane, Vegetables</option>
+                  <option value="Agricultural Inputs - Fertilizers, Seeds, Farm Equipment">Agricultural Inputs - Fertilizers, Seeds, Farm Equipment</option>
+                  <option value="Fragile Items - Electronics, Glass, Artwork">Fragile Items - Electronics, Glass, Artwork</option>
+                  <option value="Household Items - Furniture, Appliances, Personal Belongings">Household Items - Furniture, Appliances, Personal Belongings</option>
+                  <option value="Office Equipment - Computers, Desks, Office Furniture">Office Equipment - Computers, Desks, Office Furniture</option>
+                  <option value="Construction Materials - Cement, Steel, Timber">Construction Materials - Cement, Steel, Timber</option>
+                  <option value="Perishable Goods - Food, Flowers, Dairy Products">Perishable Goods - Food, Flowers, Dairy Products</option>
+                  <option value="Hazardous Materials - Chemicals, Fuel (Special Handling)">Hazardous Materials - Chemicals, Fuel (Special Handling)</option>
+                  <option value="High-Value Items - Electronics, Jewelry, Documents">High-Value Items - Electronics, Jewelry, Documents</option>
+                  <option value="Other - Please specify in details">Other - Please specify in details</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2 text-gray-700">Preferred Date</label>
+                <input type="date" name="preferred_date" class="quote-input w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none" />
+                <p class="text-xs text-gray-400 mt-1">When do you need this service?</p>
+              </div>
+            </div>
+            
+            <!-- Additional Information -->
+            <div>
+              <label class="block text-sm font-medium mb-2 text-gray-700">Additional Information</label>
+              <textarea name="details" rows="4" placeholder="Please provide any special requirements, number of items, approximate volume, or other details that will help us give you an accurate quote..." class="quote-textarea w-full px-4 py-2 border-2 border-gray-300 rounded-lg transition-all duration-300 outline-none resize-none"></textarea>
+              <p class="text-xs text-gray-400 mt-1">Examples: Moving a 3-bedroom house, 500kg of maize, 20 boxes of electronics, etc.</p>
+            </div>
+            
+            <!-- File Attachment Section -->
+            <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 transition-all duration-300 hover:border-namema-primary">
+              <label class="block text-sm font-medium mb-2 text-gray-700">Attach File (Optional)</label>
+              <div class="flex items-center justify-center w-full">
+                <label class="flex flex-col items-center justify-center w-full cursor-pointer">
+                  <div class="flex flex-col items-center justify-center pt-3 pb-2">
+                    <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                    <p class="text-sm text-gray-500">
+                      <span class="font-semibold">Click to upload</span> or drag and drop
+                    </p>
+                    <p class="text-xs text-gray-400 mt-1">
+                      Images, PDF, Word, Excel (Max 5MB)
+                    </p>
+                    <p class="text-xs text-gray-400">
+                      You can attach photos of items, inventory lists, or any relevant documents
+                    </p>
+                  </div>
+                  <input type="file" name="attachment" class="hidden" accept="image/*,.pdf,.doc,.docx,.xls,.xlsx,.txt" />
+                </label>
+              </div>
+              <div id="selected-file" class="hidden mt-2 p-2 bg-gray-50 rounded-lg">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center">
+                    <i class="fas fa-file-alt text-namema-primary mr-2"></i>
+                    <span id="file-name" class="text-sm text-gray-600"></span>
+                  </div>
+                  <button type="button" id="remove-file" class="text-red-500 hover:text-red-700">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <button type="submit" class="w-full bg-namema-primary text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-all duration-300 transform hover:scale-105 text-lg">
+              Submit Quote Request <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+            
+            <p class="text-center text-sm text-gray-500">
+              We'll respond within 30 minutes during business hours (Mon-Sat, 7AM - 7PM)
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppButton />
+</Layout>
+
+<!-- Scripts and Styles -->
+<script>
+  import '../scripts/quote.js';
+</script>
+
+<style is:global>
+  @import '../styles/quote.css';
+</style>

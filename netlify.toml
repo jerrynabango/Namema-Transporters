@@ -1,0 +1,271 @@
+# Netlify configuration for Namema Transporters
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# ============================================================
+# SECURITY HEADERS
+# ============================================================
+
+# Global security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ============================================================
+# STATIC ASSET CACHING
+# ============================================================
+
+# Images
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Assets (bundled files from Astro build)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# CSS files
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# JavaScript files
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Font files
+[[headers]]
+  for = "/*.woff"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ============================================================
+# PAGE-SPECIFIC CACHING
+# ============================================================
+
+# Quote page - shorter cache
+[[headers]]
+  for = "/quote"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/quote/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Contact page - shorter cache
+[[headers]]
+  for = "/contact"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/contact/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Thank you page - no cache (form submission result)
+[[headers]]
+  for = "/thank-you"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"
+
+[[headers]]
+  for = "/thank-you/index.html"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"
+
+# ============================================================
+# REDIRECTS
+# ============================================================
+
+# Old URL redirects (301 permanent)
+[[redirects]]
+  from = "/old-services"
+  to = "/services"
+  status = 301
+
+[[redirects]]
+  from = "/old-contact"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/old-quote"
+  to = "/quote"
+  status = 301
+
+[[redirects]]
+  from = "/old-about"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/old-fleet"
+  to = "/fleet"
+  status = 301
+
+# Remove trailing slashes (SEO friendly)
+[[redirects]]
+  from = "/services/"
+  to = "/services"
+  status = 301
+
+[[redirects]]
+  from = "/about/"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/contact/"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/quote/"
+  to = "/quote"
+  status = 301
+
+# Force HTTPS
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
+
+# WWW to non-WWW redirect
+[[redirects]]
+  from = "https://www.namematransporters.co.ke/*"
+  to = "https://namematransporters.co.ke/:splat"
+  status = 301
+  force = true
+
+# ============================================================
+# 404 ERROR HANDLING
+# ============================================================
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# ============================================================
+# FORM HANDLING (Netlify Forms)
+# ============================================================
+
+# Redirect after form submission to thank-you page
+[[redirects]]
+  from = "/form-success"
+  to = "/thank-you"
+  status = 302
+
+# ============================================================
+# BUILD PROCESSING
+# ============================================================
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# ============================================================
+# DEPLOY CONTEXTS
+# ============================================================
+
+# Production environment
+[context.production]
+  command = "npm run build"
+  
+  [context.production.environment]
+    NODE_ENV = "production"
+
+# Deploy previews (pull requests)
+[context.deploy-preview]
+  command = "npm run build"
+  
+  [context.deploy-preview.environment]
+    NODE_ENV = "preview"
+
+# Branch deploys (other branches)
+[context.branch-deploy]
+  command = "npm run build"
+  
+  [context.branch-deploy.environment]
+    NODE_ENV = "preview"
+
+# ============================================================
+# HEADERS FOR SPECIFIC FILE TYPES
+# ============================================================
+
+# HTML files
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# XML files (sitemap)
+[[headers]]
+  for = "/*.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# Robots.txt
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# ============================================================
+# SECURITY: Block access to sensitive files
+# ============================================================
+
+[[headers]]
+  for = "/.env"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/.git/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/node_modules/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

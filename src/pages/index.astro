@@ -1,0 +1,486 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+
+const stats = [
+  { number: 500, label: 'Deliveries/Month', suffix: '+', icon: 'fa-truck' },
+  { number: 15, label: 'Fleet Vehicles', suffix: '+', icon: 'fa-truck-ramp-box' },
+  { number: 4, label: 'Years Experience', suffix: '+', icon: 'fa-calendar-check' },
+  { number: 98, label: 'On-Time Delivery', suffix: '%', icon: 'fa-clock' }
+];
+
+const routes = [
+  { from: 'Luanda', to: 'Kisumu', time: '1-2 hours', distance: '45 km', icon: 'fa-city' },
+  { from: 'Luanda', to: 'Kakamega', time: '1-1.5 hours', distance: '60 km', icon: 'fa-tree' },
+  { from: 'Luanda', to: 'Nairobi', time: '6-8 hours', distance: '380 km', icon: 'fa-building' },
+  { from: 'Luanda', to: 'Mombasa', time: '14-16 hours', distance: '780 km', icon: 'fa-umbrella-beach' },
+  { from: 'Luanda', to: 'Malaba', time: '2-3 hours', distance: '140 km', icon: 'fa-passport' },
+  { from: 'Luanda', to: 'Busia', time: '2-2.5 hours', distance: '120 km', icon: 'fa-exchange-alt' }
+];
+
+// Initial 6 testimonials
+const initialTestimonials = [
+  {
+    name: 'John Mwangi',
+    position: 'CEO',
+    company: 'Jomawa Enterprises',
+    content: 'Namema Transporters has been our reliable logistics partner for over 2 years. Their on-time delivery and professional service is outstanding. They never disappoint.',
+    rating: 5
+  },
+  {
+    name: 'Sarah Otieno',
+    position: 'Operations Manager',
+    company: 'Western Traders Ltd',
+    content: 'Best transport company in Western Kenya! Their tracking system is excellent and customer service is very responsive. Highly recommended for businesses.',
+    rating: 4.3
+  },
+  {
+    name: 'Peter Kamau',
+    position: 'Import/Export Trader',
+    company: 'Kamau Enterprises',
+    content: 'Affordable rates and fast delivery from Luanda to all major destinations. Their team is professional and handles cargo with care. Great experience.',
+    rating: 4.8
+  },
+  {
+    name: 'Mary Akinyi',
+    position: 'School Administrator',
+    company: 'Luanda Academy',
+    content: 'We rely on Namema for all our school supply deliveries. They are punctual, careful with our items, and always communicate clearly.',
+    rating: 4
+  },
+  {
+    name: 'James Omondi',
+    position: 'Construction Manager',
+    company: 'BuildRight Constructions',
+    content: 'Excellent service for construction material transport. Their trucks are well-maintained and drivers are experienced with heavy loads.',
+    rating: 5
+  },
+  {
+    name: 'Grace Wanjiku',
+    position: 'Owner',
+    company: 'Grace Retail Store',
+    content: 'As a small business owner, I appreciate their affordable rates and reliable service. They have helped my business grow significantly.',
+    rating: 4.8
+  }
+];
+
+// Additional testimonials
+const additionalTestimonials = [
+  {
+    name: 'David Ochieng',
+    position: 'Logistics Director',
+    company: 'East African Freight Solutions',
+    content: 'Professional, punctual, and reasonably priced. Namema has become our go-to transport partner for Western Kenya routes. Their fleet is impressive.',
+    rating: 5
+  },
+  {
+    name: 'Lucy Wambui',
+    position: 'Supply Chain Manager',
+    company: 'Nakuru Industries Ltd',
+    content: 'We switched to Namema Transporters and never looked back. Their real-time tracking gives us peace of mind and their customer service is exceptional.',
+    rating: 4.8
+  },
+  {
+    name: 'Michael Otieno',
+    position: 'Farm Owner',
+    company: 'Kisumu Agro Farms',
+    content: 'They handle our produce deliveries with great care. Freshness is critical for us, and Namema has never disappointed. Highly reliable team.',
+    rating: 5
+  },
+  {
+    name: 'Esther Ndanu',
+    position: 'Retail Manager',
+    company: 'Western Mall Supermarket',
+    content: 'Daily deliveries done right! Their drivers are courteous and always on time. Best logistics partner we have worked with in 10 years.',
+    rating: 4.8
+  },
+  {
+    name: 'Patrick Kiprono',
+    position: 'Operations Director',
+    company: 'Rift Valley Distributors',
+    content: 'Namema handles our entire fleet logistics. Their warehousing services in Luanda are top-notch. Very professional organization.',
+    rating: 5
+  },
+  {
+    name: 'Rebecca Akoth',
+    position: 'Small Business Owner',
+    company: 'Akoth Enterprises',
+    content: 'Affordable rates for small businesses like mine. They treat small clients with the same respect as large corporations. Thank you Namema!',
+    rating: 4.3
+  }
+];
+
+// Combine all testimonials
+const allTestimonials = [...initialTestimonials, ...additionalTestimonials];
+
+// Calculate average rating
+const avgRating = (allTestimonials.reduce((sum, t) => sum + t.rating, 0) / allTestimonials.length).toFixed(1);
+---
+
+<Layout 
+  title="Best Transport and Logistics Services in Western Kenya | Namema Transporters"
+  description="Namema Transporters - Leading logistics company in Luanda, Western Kenya offering freight forwarding, cargo transport, warehousing, and delivery services across Kenya."
+>
+  <Header />
+  
+  <main>
+    <section class="relative bg-gradient-to-r from-namema-dark to-namema-primary text-white overflow-hidden">
+      <div class="absolute inset-0 bg-black opacity-40"></div>
+      <div class="relative container mx-auto px-4 py-20 md:py-28 z-10">
+        <div class="max-w-3xl">
+          <div class="inline-block bg-namema-secondary text-namema-dark px-4 py-1 rounded-full text-sm font-semibold mb-4">
+            <i class="fas fa-star mr-2"></i>Trusted Transport Partner in Western Kenya
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Reliable Logistics and Transport Solutions From Luanda
+          </h1>
+          <p class="text-lg md:text-xl mb-8 text-gray-200">
+            Fast, secure, and affordable cargo transport services. We deliver your goods safely anywhere in Kenya from our headquarters in Luanda.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/quote" class="bg-namema-secondary text-namema-dark px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition transform hover:scale-105 inline-flex items-center justify-center">
+              Get Free Quote <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <a href="/services" class="border-2 border-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-namema-dark transition inline-flex items-center justify-center">
+              Our Services <i class="fas fa-truck ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="none">
+          <path fill="#ffffff" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,112C384,107,480,117,576,133.3C672,149,768,171,864,165.3C960,160,1056,128,1152,117.3C1248,107,1344,117,1392,122.7L1440,128L1440,180L1392,180C1344,180,1248,180,1152,180C1056,180,960,180,864,180C768,180,672,180,576,180C480,180,384,180,288,180C192,180,96,180,48,180L0,180Z"></path>
+        </svg>
+      </div>
+    </section>
+    
+    <section class="py-16 bg-namema-gray" id="stats-section">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <div class="text-center group">
+              <div class="text-5xl text-namema-primary mb-3 group-hover:scale-110 transition inline-block">
+                <i class={`fas ${stat.icon}`}></i>
+              </div>
+              <div class="text-3xl md:text-4xl font-bold text-namema-dark mb-1">
+                <span class="stat-counter" data-target={String(stat.number)}>0</span>{stat.suffix}
+              </div>
+              <div class="text-gray-600">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="text-center mt-8">
+          <a href="/fleet" class="inline-flex items-center bg-namema-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition group">
+            <i class="fas fa-truck-moving mr-2"></i>
+            Explore Our Complete Fleet
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-namema-dark mb-4">
+            Our Transport Services
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Comprehensive logistics solutions tailored to your business needs from our base in Luanda
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="text-4xl text-namema-primary mb-4">
+              <i class="fas fa-truck-moving"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Freight Forwarding</h3>
+            <p class="text-gray-600">Efficient freight forwarding services for businesses of all sizes across Kenya and East Africa.</p>
+            <a href="/services" class="inline-block mt-4 text-namema-primary font-semibold hover:underline">Learn more</a>
+          </div>
+          
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="text-4xl text-namema-primary mb-4">
+              <i class="fas fa-warehouse"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Warehousing</h3>
+            <p class="text-gray-600">Secure warehousing solutions with inventory management in Luanda for all your storage needs.</p>
+            <a href="/services" class="inline-block mt-4 text-namema-primary font-semibold hover:underline">Learn more</a>
+          </div>
+          
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="text-4xl text-namema-primary mb-4">
+              <i class="fas fa-motorcycle"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Last Mile Delivery</h3>
+            <p class="text-gray-600">Fast and reliable last-mile delivery services for e-commerce businesses and retailers.</p>
+            <a href="/services" class="inline-block mt-4 text-namema-primary font-semibold hover:underline">Learn more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">
+            Popular Routes From Luanda
+          </h2>
+          <p class="text-gray-300 max-w-2xl mx-auto">
+            Strategically located in Luanda, we serve destinations across Kenya with speed and reliability
+          </p>
+        </div>
+        
+        <div class="relative max-w-5xl mx-auto">
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center bg-white/10 rounded-full px-6 py-2">
+              <i class="fas fa-map-marker-alt text-namema-secondary mr-2"></i>
+              <span class="font-semibold">Our Hub: Luanda, Western Kenya</span>
+            </div>
+          </div>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {routes.map((route, index) => (
+              <div class="group relative bg-white/10 rounded-2xl overflow-hidden hover:bg-white/20 transition-all duration-300 hover:-translate-y-2">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-namema-primary/20 rounded-bl-full"></div>
+                <div class="p-5">
+                  <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-namema-primary to-red-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <i class={`fas ${route.icon} text-white text-lg`}></i>
+                    </div>
+                    <div class="text-xs font-semibold text-namema-secondary bg-black/20 px-2 py-1 rounded-full">
+                      {route.distance}
+                    </div>
+                  </div>
+                  
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="font-bold text-white">{route.from}</span>
+                    <i class="fas fa-arrow-right text-namema-secondary text-sm mx-2"></i>
+                    <span class="font-bold text-namema-secondary">{route.to}</span>
+                  </div>
+                  
+                  <div class="flex items-center justify-between text-sm text-gray-300 mt-4 pt-3 border-t border-white/10">
+                    <span><i class="far fa-clock mr-1"></i> {route.time}</span>
+                    <a href="/quote" class="text-namema-secondary font-semibold hover:text-yellow-400 transition flex items-center">
+                      Book Now
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div class="text-center mt-10">
+            <div class="inline-flex items-center bg-white/10 rounded-full px-6 py-3">
+              <i class="fas fa-truck-fast text-namema-secondary mr-2"></i>
+              <span class="text-gray-300 text-sm">Plus nationwide delivery to all major towns and cities across Kenya</span>
+            </div>
+          </div>
+          
+          <div class="mt-8 bg-white/10 rounded-2xl p-5">
+            <div class="text-center mb-3">
+              <i class="fas fa-route text-namema-secondary text-2xl mb-1"></i>
+              <h3 class="text-lg font-semibold text-white">Complete Nationwide Coverage</h3>
+              <p class="text-gray-400 text-xs">From Luanda to every corner of Kenya</p>
+            </div>
+            <div class="relative h-2 bg-gray-700 rounded-full overflow-hidden">
+              <div class="absolute left-0 top-0 h-full bg-namema-primary rounded-full" style="width: 100%;"></div>
+            </div>
+            <div class="flex justify-between mt-2 text-xs text-gray-400">
+              <span>Luanda HQ</span>
+              <span>Western Kenya</span>
+              <span>Rift Valley</span>
+              <span>Nairobi</span>
+              <span>Coast</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-namema-dark">Why Choose Namema Transporters?</h2>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-namema-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i class="fas fa-check-circle text-white text-sm"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">24/7 Customer Support</h3>
+                  <p class="text-gray-600">Dedicated support team available round the clock from Luanda</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-namema-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i class="fas fa-shield-alt text-white text-sm"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">Cargo Insurance</h3>
+                  <p class="text-gray-600">Full insurance coverage for all shipments</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-namema-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i class="fas fa-chart-line text-white text-sm"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">Real-time Tracking</h3>
+                  <p class="text-gray-600">Track your cargo every step of the way</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-namema-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <i class="fas fa-tag text-white text-sm"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">Competitive Pricing</h3>
+                  <p class="text-gray-600">Affordable rates with no hidden costs</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8 pt-4 border-t border-gray-200">
+              <a href="/fleet" class="inline-flex items-center bg-namema-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition group">
+                <i class="fas fa-truck-ramp-box mr-2"></i>
+                View Our Complete Fleet
+                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+              </a>
+              <p class="text-sm text-gray-500 mt-2">15+ modern vehicles for all cargo types</p>
+            </div>
+          </div>
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600" alt="Namema Transporters Fleet" class="rounded-lg shadow-xl w-full" />
+            <div class="absolute -bottom-5 -right-5 bg-namema-primary text-white p-4 rounded-lg shadow-lg">
+              <div class="text-2xl font-bold">98%</div>
+              <div class="text-sm">Satisfaction Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section with Carousel -->
+    <section class="py-20 bg-namema-gray" id="testimonials-section">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-namema-dark mb-4">What Our Clients Say</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Trusted by businesses and individuals across Western Kenya</p>
+          <div class="inline-flex items-center bg-namema-primary/10 rounded-full px-4 py-1 mt-4">
+            <i class="fas fa-user-check text-namema-primary text-sm mr-2"></i>
+            <span class="text-sm font-semibold text-namema-dark">12+ Verified Clients</span>
+          </div>
+        </div>
+        
+        <!-- Carousel Container -->
+        <div class="relative max-w-6xl mx-auto">
+          <!-- Carousel Navigation Buttons -->
+          <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 md:-ml-6 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-namema-primary hover:text-white transition-all duration-300">
+            <i class="fas fa-chevron-left w-5 h-5"></i>
+          </button>
+          <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 md:-mr-6 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-namema-primary hover:text-white transition-all duration-300">
+            <i class="fas fa-chevron-right w-5 h-5"></i>
+          </button>
+          
+          <!-- Carousel Slides -->
+          <div class="overflow-hidden">
+            <div id="carouselTrack" class="flex transition-transform duration-500 ease-out">
+              {allTestimonials.map((testimonial, idx) => {
+                const fullStars = Math.floor(testimonial.rating);
+                const hasHalfStar = (testimonial.rating % 1) !== 0;
+                const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+                return (
+                  <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 px-4" data-testimonial-index={idx}>
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden h-full">
+                      <div class="bg-gradient-to-r from-namema-primary to-red-600 h-2"></div>
+                      <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                          <div class="flex items-center text-namema-secondary gap-0.5">
+                            {Array.from({ length: fullStars }).map((_, i) => (
+                              <i class="fas fa-star text-sm"></i>
+                            ))}
+                            {hasHalfStar && <i class="fas fa-star-half-alt text-sm"></i>}
+                            {Array.from({ length: emptyStars }).map((_, i) => (
+                              <i class="far fa-star text-sm"></i>
+                            ))}
+                            <span class="ml-1 text-xs text-gray-600 font-medium">{testimonial.rating.toFixed(1)}</span>
+                          </div>
+                          <span class="text-xs text-gray-400">
+                            <i class="fas fa-quote-right"></i>
+                          </span>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">"{testimonial.content}"</p>
+                        <div class="flex items-center pt-3 border-t border-gray-100">
+                          <div class="w-10 h-10 bg-gradient-to-br from-namema-primary to-red-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-white text-sm"></i>
+                          </div>
+                          <div class="ml-3">
+                            <h4 class="font-bold text-namema-dark text-sm">{testimonial.name}</h4>
+                            <p class="text-gray-500 text-xs">{testimonial.position}, {testimonial.company}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          
+          <!-- Carousel Dots -->
+          <div class="flex justify-center gap-2 mt-8" id="carouselDots"></div>
+        </div>
+        
+        <div class="text-center mt-10">
+          <div class="inline-flex items-center bg-white rounded-full px-6 py-2 shadow-md">
+            <i class="fas fa-star text-namema-secondary mr-2"></i>
+            <span class="font-bold text-namema-dark">{avgRating}</span>
+            <span class="text-gray-500 text-sm ml-1">Average Rating</span>
+            <span class="mx-2 text-gray-300">|</span>
+            <i class="fas fa-smile text-namema-primary mr-2"></i>
+            <span class="text-gray-600 text-sm">{allTestimonials.length * 10}+ Happy Clients</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-20 bg-gradient-to-r from-namema-primary to-red-800 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Ready to Transport Your Goods?
+        </h2>
+        <p class="text-xl mb-8 max-w-2xl mx-auto">
+          Get a free quote today and experience reliable logistics services from Luanda to anywhere in Kenya
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/quote" class="bg-namema-secondary text-namema-dark px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition inline-flex items-center justify-center">
+            Get Free Quote <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+          <a href="tel:+254712345678" class="border-2 border-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-namema-primary transition inline-flex items-center justify-center">
+            <i class="fas fa-phone-alt mr-2" style="transform: scaleX(-1); display: inline-block;"></i> Call Now
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppButton />
+</Layout>
+
+<!-- Scripts and Styles -->
+<script>
+  import '../scripts/index.js';
+</script>
+
+<style is:global>
+  @import '../styles/index.css';
+</style>

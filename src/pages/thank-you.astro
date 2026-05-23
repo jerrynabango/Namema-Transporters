@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+---
+
+<Layout title="Thank You | Namema Transporters" description="Thank you for contacting Namema Transporters. We'll get back to you shortly.">
+  <Header />
+  
+  <main>
+    <section class="relative bg-gradient-to-r from-green-600 to-green-800 text-white py-32">
+      <div class="container mx-auto px-4 text-center">
+        <i class="fas fa-check-circle text-6xl mb-6"></i>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Thank You!</h1>
+        <p class="text-xl max-w-2xl mx-auto mb-8">Your message has been sent successfully. We'll get back to you within 30 minutes during business hours.</p>
+        <a href="/" class="inline-flex items-center bg-white text-green-600 px-6 py-3 rounded-lg font-bold hover:bg-gray-100 transition">
+          <i class="fas fa-home mr-2"></i> Return to Home
+        </a>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppButton />
+</Layout>

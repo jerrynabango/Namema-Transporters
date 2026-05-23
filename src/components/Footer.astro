@@ -1,0 +1,94 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-namema-dark text-white pt-12 pb-6">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <!-- Company Info -->
+      <div>
+        <div class="flex items-center space-x-2 mb-4">
+          <div class="text-3xl">🚛</div>
+          <div>
+            <h3 class="text-xl font-bold text-namema-secondary">NAMEMA</h3>
+            <p class="text-xs">TRANSPORTERS</p>
+          </div>
+        </div>
+        <p class="text-gray-300 text-sm">
+          Reliable logistics and transport solutions across Kenya. Moving your business forward since 2021 from our headquarters in Luanda.
+        </p>
+        <div class="flex space-x-4 mt-4">
+          <a href="#" class="text-gray-400 hover:text-namema-secondary transition text-xl">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-namema-secondary transition text-xl">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-namema-secondary transition text-xl">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-namema-secondary transition text-xl">
+            <i class="fab fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-lg font-bold mb-4 text-namema-secondary">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="/" class="text-gray-300 hover:text-white transition">Home</a></li>
+          <li><a href="/about" class="text-gray-300 hover:text-white transition">About Us</a></li>
+          <li><a href="/services" class="text-gray-300 hover:text-white transition">Services</a></li>
+          <li><a href="/fleet" class="text-gray-300 hover:text-white transition">Our Fleet</a></li>
+          <li><a href="/contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+      
+      <!-- Services -->
+      <div>
+        <h4 class="text-lg font-bold mb-4 text-namema-secondary">Our Services</h4>
+        <ul class="space-y-2">
+          <li class="text-gray-300">Freight Forwarding</li>
+          <li class="text-gray-300">Full Truckload (FTL)</li>
+          <li class="text-gray-300">Less Than Truckload (LTL)</li>
+          <li class="text-gray-300">Warehousing and Storage</li>
+          <li class="text-gray-300">Last Mile Delivery</li>
+          <li class="text-gray-300">Packing and Moving</li>
+        </ul>
+      </div>
+      
+      <!-- Contact Info - Updated to Luanda only -->
+      <div>
+        <h4 class="text-lg font-bold mb-4 text-namema-secondary">Contact Us</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start space-x-3">
+            <i class="fas fa-map-marker-alt text-namema-secondary mt-1"></i>
+            <span class="text-gray-300 text-sm">Luanda Town, Along Luanda-Kisumu Road, Luanda, Vihiga County, Kenya</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <i class="fas fa-phone text-namema-secondary"></i>
+            <span class="text-gray-300">+254 712 345 678</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <i class="fas fa-envelope text-namema-secondary"></i>
+            <span class="text-gray-300">info@namematransporters.co.ke</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <i class="fab fa-whatsapp text-namema-secondary"></i>
+            <span class="text-gray-300">+254 723 456 789</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-700 pt-6 mt-6 text-center text-sm text-gray-400">
+      <p>&copy; {currentYear} Namema Transporters. All rights reserved.</p>
+      <p class="mt-2">
+        <a href="/privacy" class="hover:text-white transition">Privacy Policy</a> | 
+        <a href="/terms" class="hover:text-white transition">Terms of Service</a>
+      </p>
+    </div>
+  </div>
+</footer>

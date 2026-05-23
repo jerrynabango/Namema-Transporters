@@ -1,0 +1,165 @@
+/*  Form focus states */
+.quote-input:focus,
+.quote-textarea:focus,
+.quote-select:focus {
+  border-color: #D32F2F !important;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1) !important;
+  outline: none !important;
+}
+
+.quote-input:focus-visible,
+.quote-textarea:focus-visible,
+.quote-select:focus-visible {
+  outline: none !important;
+}
+
+/* Smooth transitions */
+.quote-input, 
+.quote-textarea, 
+.quote-select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quote-input:hover,
+.quote-textarea:hover,
+.quote-select:hover {
+  border-color: #D32F2F;
+}
+
+/* Date input styling */
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+/* File input styling */
+input[type="file"] {
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: #D32F2F;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 12px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #b71c1c;
+}
+
+/* Truck selector styles */
+.truck-option {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.truck-option:hover {
+  background-color: #f9fafb;
+}
+
+/* Dropdown visibility */
+.hidden-dropdown {
+  display: none;
+}
+
+/* Dropdown scrollbar */
+#truckDropdown {
+  max-height: 400px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+#truckDropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+#truckDropdown::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+#truckDropdown::-webkit-scrollbar-thumb {
+  background: #D32F2F;
+  border-radius: 3px;
+}
+
+#truckDropdown::-webkit-scrollbar-thumb:hover {
+  background: #b71c1c;
+}
+
+/* Selected truck image animation */
+#selectedTruckImage {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Form validation styles */
+input.border-red-500,
+textarea.border-red-500,
+select.border-red-500 {
+  border-color: #ef4444 !important;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Loading state */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #D32F2F;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*  Responsive styles */
+@media (max-width: 768px) {
+  #truckDropdown {
+    max-height: 300px;
+  }
+  
+  .quote-input, 
+  .quote-textarea, 
+  .quote-select {
+    font-size: 16px; /* Prevents zoom on mobile */
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  input.border-red-500 {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .truck-option {
+    display: none;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+}
