@@ -1,0 +1,433 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+const lastUpdated = "2026-05-24";
+---
+
+<Layout 
+  title="Terms of Service | Namema Transporters"
+  description="Terms and conditions for Namema Transporters' logistics and transport services in Kenya. Learn about quotes, payments, liability, claims, and customer obligations."
+>
+  <Header />
+  
+  <main>
+    <section class="relative bg-gradient-to-r from-namema-primary to-red-700 text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Terms of Service</h1>
+        <p class="text-xl max-w-3xl mx-auto">Terms and conditions for our transport and logistics services</p>
+        <p class="text-sm mt-4 text-white/80">Effective Date: {lastUpdated}</p>
+      </div>
+    </section>
+    
+    <section class="py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="bg-white rounded-lg shadow-xl p-8 md:p-12">
+          
+          <!-- Acceptance of Terms -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">1. Acceptance of Terms</h2>
+            <p class="text-gray-600 leading-relaxed mb-3">
+              By requesting a quote, booking our services, or using any of Namema Transporters' transport and logistics services, you ("Customer", "you", "your") agree to be bound by these Terms of Service ("Terms").
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              If you do not agree to these Terms, please do not use our services. These Terms apply to all services provided by Namema Transporters, including freight forwarding, cargo transport, warehousing, last-mile delivery, and packing/moving services.
+            </p>
+          </div>
+          
+          <!-- Our Services -->
+          <div class="mb-8 bg-gray-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">2. Our Services</h2>
+            <p class="text-gray-600 leading-relaxed mb-3">
+              Namema Transporters is a registered transport and logistics company based in Luanda, Vihiga County, Kenya. We provide:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li>Freight forwarding and cargo transport across Kenya</li>
+              <li>Full Truckload (FTL) and Less Than Truckload (LTL) services</li>
+              <li>Warehousing and secure storage solutions</li>
+              <li>Last mile delivery for businesses and individuals</li>
+              <li>Professional packing and moving services (households and offices)</li>
+              <li>Agricultural produce transport (maize, tea, coffee, sugarcane, vegetables)</li>
+              <li>Cross-border transport to Uganda (Malaba, Busia border points)</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed mt-3">
+              All services are operated from our headquarters in Luanda, with our fleet serving destinations across Kenya.
+            </p>
+          </div>
+          
+          <!-- Quotes and Pricing -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">3. Quotes and Pricing</h2>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-3 mb-2">3.1 Obtaining a Quote</h3>
+            <p class="text-gray-600 leading-relaxed mb-2">
+              You may request a quote through:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li>Our website quote form</li>
+              <li>Phone call to <a href="tel:+254712345678" class="text-namema-primary hover:underline">+254 712 345 678</a></li>
+              <li>WhatsApp message to <a href="https://wa.me/254723456789" class="text-namema-primary hover:underline">+254 723 456 789</a></li>
+              <li>Email to <a href="mailto:info@namematransporters.co.ke" class="text-namema-primary hover:underline">info@namematransporters.co.ke</a></li>
+              <li>In-person visit to our Luanda office</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">3.2 Quote Validity</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Quotes provided are valid for 7 days from the date of issue, unless otherwise stated. Quotes are based on the information you provide about cargo type, weight, dimensions, pickup location, and delivery destination.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">3.3 Final Pricing</h3>
+            <p class="text-gray-600 leading-relaxed mb-2">
+              Final charges may differ from the initial quote in the following circumstances:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li>Actual cargo weight or dimensions exceed quoted estimates</li>
+              <li>Special handling requirements not disclosed at the time of quote</li>
+              <li>Waiting time exceeding 1 hour at pickup or delivery points (KES 500 per additional hour)</li>
+              <li>Route changes requested after dispatch</li>
+              <li>Detours due to road closures or inaccessible locations</li>
+              <li>Fuel price fluctuations (we reserve the right to adjust rates for significant fuel price changes)</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">3.4 Payment Terms</h3>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li><strong>Deposit:</strong> 50% deposit required to confirm booking and dispatch vehicle</li>
+              <li><strong>Balance:</strong> Remaining 50% due upon delivery, before cargo is unloaded</li>
+              <li><strong>Accepted Payment Methods:</strong> M-Pesa, Bank Transfer, Cash, Credit/Debit Card</li>
+              <li><strong>Late Payment:</strong> Outstanding balances after 7 days may incur a 5% late fee</li>
+            </ul>
+          </div>
+          
+          <!-- Booking and Cancellation -->
+          <div class="mb-8 bg-gray-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">4. Booking and Cancellation</h2>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-2 mb-2">4.1 Booking Confirmation</h3>
+            <p class="text-gray-600 leading-relaxed mb-2">
+              A booking is confirmed when:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li>You have provided all necessary shipment details</li>
+              <li>We have provided written confirmation (via SMS, WhatsApp, or email)</li>
+              <li>You have paid the required deposit</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">4.2 Cancellation by Customer</h3>
+            <div class="overflow-x-auto">
+              <table class="min-w-full text-sm text-gray-600">
+                <thead class="bg-gray-100">
+                  <tr>
+                    <th class="text-left p-2">Cancellation Notice</th>
+                    <th class="text-left p-2">Refund of Deposit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b">
+                    <td class="p-2">48+ hours before scheduled pickup</td>
+                    <td class="p-2">100% refund</td>
+                  </tr>
+                  <tr class="border-b">
+                    <td class="p-2">24-48 hours before scheduled pickup</td>
+                    <td class="p-2">50% refund</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2">Less than 24 hours before scheduled pickup</td>
+                    <td class="p-2">No refund</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">4.3 Cancellation by Namema Transporters</h3>
+            <p class="text-gray-600 leading-relaxed">
+              We reserve the right to cancel or reschedule services due to mechanical breakdown, driver unavailability, safety concerns, or force majeure events. In such cases, we will:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4 mt-2">
+              <li>Notify you as soon as possible</li>
+              <li>Provide a full refund of any deposit paid</li>
+              <li>Offer to reschedule at no additional cost (if you still require the service)</li>
+            </ul>
+          </div>
+          
+          <!-- Customer Responsibilities -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">5. Customer Responsibilities</h2>
+            <p class="text-gray-600 leading-relaxed mb-3">You agree to:</p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li>Provide accurate and complete information about your cargo (type, weight, dimensions)</li>
+              <li>Disclose any hazardous, fragile, or special-handling requirements before booking</li>
+              <li>Ensure proper packaging that can withstand normal transport conditions</li>
+              <li>Be present or have an authorized representative at pickup and delivery locations</li>
+              <li>Provide safe access for our vehicles at pickup and delivery points</li>
+              <li>Obtain all necessary permits, licenses, or customs documentation for restricted items</li>
+              <li>Pay all agreed fees in full and on time</li>
+              <li>Inspect cargo upon delivery and note any damage on the delivery receipt</li>
+            </ul>
+          </div>
+          
+          <!-- Prohibited Items -->
+          <div class="mb-8 bg-red-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">6. Prohibited Items</h2>
+            <p class="text-gray-600 leading-relaxed mb-3">
+              The following items are strictly prohibited from transport under any circumstances:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li>Illegal drugs, narcotics, or controlled substances</li>
+              <li>Firearms, ammunition, explosives, or weapons of any kind</li>
+              <li>Hazardous, toxic, radioactive, or biohazardous materials</li>
+              <li>Stolen goods or contraband</li>
+              <li>Live animals (except with prior written agreement and appropriate conditions)</li>
+              <li>Human remains or body parts</li>
+              <li>Cash, negotiable instruments, or valuables exceeding KES 100,000 (unless declared and insured)</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed mt-3 font-semibold">
+              <strong>Consequences:</strong> If you fail to disclose prohibited items, you bear full liability for all damages, fines, legal penalties, and reputational harm. We will report violations to the appropriate authorities and may dispose of prohibited items without compensation.
+            </p>
+          </div>
+          
+          <!-- Liability and Insurance -->
+          <div class="mb-8 bg-gray-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">7. Liability and Insurance</h2>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-2 mb-2">7.1 Standard Liability</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Our standard liability for loss or damage to cargo is limited to KES 100,000 per shipment or the actual value of the goods (whichever is lower). This liability applies only when loss or damage is directly caused by our negligence.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">7.2 Cargo Insurance</h3>
+            <p class="text-gray-600 leading-relaxed mb-2">
+              We offer cargo insurance at an additional cost of 1.5% of declared cargo value. Insurance coverage includes:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li>Loss or damage due to accidents, theft, or fire</li>
+              <li>Coverage from pickup to delivery</li>
+              <li>Claims processed within 30 days</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed mt-2">
+              Insurance must be requested and paid for at the time of booking. Without purchased insurance, you transport at your own risk.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">7.3 Exclusions from Liability</h3>
+            <p class="text-gray-600 leading-relaxed mb-2">
+              We are not liable for loss or damage caused by:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li>Improper or inadequate packaging by the customer</li>
+              <li>Inherent vice (natural deterioration, spoilage, or inherent defects)</li>
+              <li>Acts of God (floods, earthquakes, landslides, lightning, extreme weather)</li>
+              <li>Acts of terrorism, war, civil unrest, or riots</li>
+              <li>Government seizure, customs delays, or regulatory action</li>
+              <li>Consequential or indirect losses (lost profits, business interruption, lost opportunities)</li>
+              <li>Delay, unless caused by our gross negligence</li>
+              <li>Normal wear and tear during transport</li>
+            </ul>
+          </div>
+          
+          <!-- Delivery and Delays -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">8. Delivery and Delays</h2>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-2 mb-2">8.1 Estimated Delivery Times</h3>
+            <p class="text-gray-600 leading-relaxed mb-2">
+              Estimated delivery times are provided in good faith but are not guaranteed:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li>Luanda to Kisumu: 1-2 hours</li>
+              <li>Luanda to Kakamega: 1-1.5 hours</li>
+              <li>Luanda to Nairobi: 6-8 hours</li>
+              <li>Luanda to Mombasa: 14-16 hours</li>
+              <li>Luanda to Malaba/Busia: 2-3 hours</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">8.2 Delays</h3>
+            <p class="text-gray-600 leading-relaxed">
+              We are not liable for delays caused by traffic congestion, road conditions, weather, accidents, mechanical issues, fuel shortages, or any other factors beyond our reasonable control. We will communicate any significant delays to you as soon as possible.
+            </p>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">8.3 Inspection at Delivery</h3>
+            <p class="text-gray-600 leading-relaxed">
+              You or your authorized representative must inspect the cargo upon delivery. Any damage must be noted on the delivery receipt before signing. Claims for concealed damage must be filed within 7 days of delivery.
+            </p>
+          </div>
+          
+          <!-- Claims Process -->
+          <div class="mb-8 bg-gray-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">9. Claims Process</h2>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-2 mb-2">9.1 Filing a Claim</h3>
+            <p class="text-gray-600 leading-relaxed mb-2">To file a claim for loss or damage:</p>
+            <ol class="list-decimal list-inside text-gray-600 space-y-1 ml-4">
+              <li>Notify us in writing within 7 days of delivery</li>
+              <li>Provide clear photos/video of the damage</li>
+              <li>Submit original invoice or proof of value for damaged items</li>
+              <li>Preserve damaged goods and original packaging for inspection</li>
+              <li>Complete our claims form (provided upon request)</li>
+            </ol>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">9.2 Claim Resolution Timeline</h3>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+              <li>Acknowledgment of claim: Within 3 business days</li>
+              <li>Investigation: Within 14 business days of receiving all documentation</li>
+              <li>Claim determination: Within 21 business days</li>
+              <li>Payment of approved claims: Within 30 days of approval</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold text-namema-primary mt-4 mb-2">9.3 Claim Denial</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Failure to follow the claims process, provide required documentation, or allow inspection of damaged goods may result in denial of your claim.
+            </p>
+          </div>
+          
+          <!-- Force Majeure -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">10. Force Majeure</h2>
+            <p class="text-gray-600 leading-relaxed">
+              Neither party shall be liable for delays or failures in performance resulting from causes beyond their reasonable control, including but not limited to: natural disasters, epidemics/pandemics, government actions, war, terrorism, civil unrest, strikes, fuel shortages, road closures, or extreme weather conditions.
+            </p>
+          </div>
+          
+          <!-- Limitation of Liability -->
+          <div class="mb-8 bg-red-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">11. Limitation of Liability</h2>
+            <p class="text-gray-600 leading-relaxed">
+              To the maximum extent permitted by Kenyan law, Namema Transporters and its employees, drivers, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to lost profits, lost revenue, lost business opportunities, or reputational harm, arising from or related to your use of our services. Our total liability shall not exceed the amount you paid for the specific transport service giving rise to the claim.
+            </p>
+          </div>
+          
+          <!-- Indemnification -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">12. Indemnification</h2>
+            <p class="text-gray-600 leading-relaxed">
+              You agree to indemnify, defend, and hold harmless Namema Transporters, its owners, employees, drivers, and agents from any claims, damages, losses, liabilities, costs, or expenses (including reasonable legal fees) arising from:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4 mt-2">
+              <li>Your violation of these Terms</li>
+              <li>Your failure to disclose hazardous or prohibited items</li>
+              <li>Your negligent or wrongful conduct</li>
+              <li>Third-party claims arising from your cargo</li>
+            </ul>
+          </div>
+          
+          <!-- Governing Law -->
+          <div class="mb-8 bg-gray-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">13. Governing Law</h2>
+            <p class="text-gray-600 leading-relaxed">
+              These Terms shall be governed by and construed in accordance with the laws of the Republic of Kenya, including the:
+            </p>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4 mt-2">
+              <li>Traffic Act (Cap 403)</li>
+              <li>National Transport and Safety Authority Act (No. 33 of 2012)</li>
+              <li>East African Community Customs Management Act (for cross-border shipments)</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed mt-2">
+              Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts in Vihiga County, Kenya.
+            </p>
+          </div>
+          
+          <!-- Dispute Resolution -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">14. Dispute Resolution</h2>
+            <p class="text-gray-600 leading-relaxed mb-3">
+              Before filing any legal action, you agree to attempt to resolve disputes through the following process:
+            </p>
+            <ol class="list-decimal list-inside text-gray-600 space-y-1 ml-4">
+              <li><strong>Step 1 - Internal Review:</strong> Contact our customer service team at <a href="tel:+254712345678" class="text-namema-primary hover:underline">+254 712 345 678</a> to discuss your concern</li>
+              <li><strong>Step 2 - Management Escalation:</strong> If unresolved, request to speak with our Operations Manager</li>
+              <li><strong>Step 3 - Mediation:</strong> If still unresolved, disputes shall be submitted to binding mediation before resorting to litigation</li>
+            </ol>
+            <p class="text-gray-600 leading-relaxed mt-2">
+              Claims under KES 200,000 may be filed in the Small Claims Court at the nearest court registry.
+            </p>
+          </div>
+          
+          <!-- Amendments -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">15. Amendments to These Terms</h2>
+            <p class="text-gray-600 leading-relaxed">
+              We reserve the right to amend these Terms at any time. Amendments will be effective immediately upon posting to our website. Your continued use of our services after amendments constitutes acceptance of the revised Terms. Material changes will be communicated via SMS or email if you have provided these details.
+            </p>
+          </div>
+          
+          <!-- Severability -->
+          <div class="mb-8 bg-gray-50 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">16. Severability</h2>
+            <p class="text-gray-600 leading-relaxed">
+              If any provision of these Terms is found to be unenforceable or invalid by a court of competent jurisdiction, that provision shall be severed, and the remaining provisions shall remain in full force and effect.
+            </p>
+          </div>
+          
+          <!-- Entire Agreement -->
+          <div class="mb-8">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">17. Entire Agreement</h2>
+            <p class="text-gray-600 leading-relaxed">
+              These Terms constitute the entire agreement between you and Namema Transporters regarding our transport and logistics services. They supersede all prior agreements, understandings, or representations, whether written or oral.
+            </p>
+          </div>
+          
+          <!-- Contact Information -->
+          <div class="mb-8 bg-gradient-to-r from-namema-primary/10 to-red-100 p-6 rounded-lg">
+            <h2 class="text-2xl font-bold text-namema-dark mb-4">18. Contact Us</h2>
+            <p class="text-gray-600 leading-relaxed mb-6">
+              For questions about these Terms or to discuss any concerns, please contact us:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div class="flex items-center gap-3 bg-white/50 p-3 rounded-lg">
+                <div class="bg-namema-primary/20 p-2 rounded-full w-10 h-10 flex items-center justify-center">
+                  <i class="fas fa-phone-alt text-namema-primary"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500">Call Us</p>
+                  <a href="tel:+254712345678" class="text-namema-primary hover:underline font-medium">+254 712 345 678</a>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 bg-white/50 p-3 rounded-lg">
+                <div class="bg-namema-primary/20 p-2 rounded-full w-10 h-10 flex items-center justify-center">
+                  <i class="fab fa-whatsapp text-namema-primary"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500">WhatsApp Us</p>
+                  <a href="https://wa.me/254723456789" class="text-namema-primary hover:underline font-medium">+254 723 456 789</a>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 bg-white/50 p-3 rounded-lg">
+                <div class="bg-namema-primary/20 p-2 rounded-full w-10 h-10 flex items-center justify-center">
+                  <i class="fas fa-envelope text-namema-primary"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500">Email Us</p>
+                  <a href="mailto:info@namematransporters.co.ke" class="text-namema-primary hover:underline font-medium">info@namematransporters.co.ke</a>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 bg-white/50 p-3 rounded-lg">
+                <div class="bg-namema-primary/20 p-2 rounded-full w-10 h-10 flex items-center justify-center">
+                  <i class="fas fa-clock text-namema-primary"></i>
+                </div>
+                <div>
+                  <p class="text-xs text-gray-500">Office Hours</p>
+                  <p class="text-gray-700 text-sm">Mon-Fri: 7AM-7PM | Sat: 8AM-4PM</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/50 text-center">
+              <p class="text-sm text-gray-600">📍 Luanda Town, Along Luanda-Kisumu Road | 📬 P.O. Box 123 - 50307, Luanda, Kenya</p>
+            </div>
+          </div>
+          
+          <!-- Acknowledgment -->
+          <div class="text-center pt-6 border-t border-gray-200">
+            <p class="text-sm text-gray-600">
+              <i class="fas fa-check-circle text-green-600 mr-2"></i>
+              By using Namema Transporters' services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+  <WhatsAppButton />
+</Layout>
